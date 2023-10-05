@@ -13,7 +13,7 @@
 
 NAME = book
 
-SRC = main.cpp
+SRC = main.cpp PhoneBook.cpp Contact.cpp
 OBJ	= $(SRC:.cpp=.o)
 
 CFLAGS = -g3 -Wall -Wextra -Werror -std=c++98
