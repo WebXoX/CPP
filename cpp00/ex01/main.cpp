@@ -11,7 +11,7 @@ bool validNumb(std::string number)
     return true;
 }
 int main (){
-    PhoneBook book;
+    PhoneBook   book;
     std::string order;
     std::string fname;
     std::string lname;
@@ -21,24 +21,20 @@ int main (){
    for (size_t i = 0; i != -1; i++)
    {
         std::cout   << WHITE << "Your order is my command"<< std::endl;
-        std::getline(std::cin, order);
+        std::getline(std::cin >> std::ws, order);
         if (order.compare("ADD") == 0)
         {
             std::cout << "Enter Contact's first name"<< std::endl;
-            std::cin >> std::ws;
-            std::getline(std::cin, fname);
-            std::cout << "You entered: " << fname << std::endl;
+            std::getline(std::cin >> std::ws, fname);
             std::cout << "Enter Contact's last name"<< std::endl;
-            std::cin >> std::ws;
-            std::getline(std::cin, lname);
+            std::getline(std::cin >> std::ws, lname);
             std::cout << "Enter Contact's nick name"<< std::endl;
-            std::cin >> std::ws;
-            std::getline(std::cin, nname);
+            std::getline(std::cin >> std::ws, nname);
             do
             {
                 std::cout << "Enter Contact's Phone Number"<< std::endl;
                 number.clear();
-                std::getline(std::cin, number) ;
+                std::getline(std::cin >> std::ws, number) ;
                 if(number.empty())
                     break;
                 if  (number.length() < 6 || number.length() > 10 || validNumb(number) == false)
@@ -47,12 +43,13 @@ int main (){
             } while (number.length() < 6 || number.length() > 10 || validNumb(number) == false);
 
                 std::cout << "Enter Contact's Dark secret"<< std::endl;
-                std::getline(std::cin, secret) ;
+                std::getline(std::cin >>std::ws, secret) ;
                 book.AddContact(fname,lname,nname,number,secret);
                 book.print();
         }
         else if (order.compare("SEARCH") == 0 )
         {
+            std::system("clear");
             book.searchReturn();
             std::cout << DEFAULT ;
         }

@@ -6,21 +6,21 @@
 #    By: jperinch <jperinch@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/07/12 12:01:22 by jperinch          #+#    #+#              #
-#    Updated: 2023/10/09 09:38:18 by jperinch         ###   ########.fr        #
+#    Updated: 2023/10/10 08:53:00 by jperinch         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 
-NAME = bank
+NAME = Zombie
 
-SRC = Account.cpp tests.cpp
+SRC =  main.cpp Zombie.cpp newZombie.cpp randomChump.cpp
 OBJ	= $(SRC:.cpp=.o)
 
 CFLAGS = -g3 -Wall -Wextra -Werror -std=c++98
 CC = g++
 
 
-all:  $(NAME)
+all:  $(OBJ) $(NAME)
 
 
 $(NAME): $(OBJ)

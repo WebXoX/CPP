@@ -2,11 +2,11 @@
 
 PhoneBook::PhoneBook()
 {
-    index = 1;
+    index = 0;
 }
 int PhoneBook::ExistingUserCheck(std::string fname, std::string lname, std::string nname)
 {
-    for (size_t i = 0;  PhoneBook::peps[i].GetFname().empty() == 0; i++)
+    for (size_t i = 0; i < PhoneBook::index; i++)
     {
         if( PhoneBook::peps[i].GetFname().compare(fname) == 0 &&  PhoneBook::peps[i].GetLname().compare(lname) == 0 &&  PhoneBook::peps[i].GetNname().compare(nname) == 0 )
         {
@@ -21,13 +21,13 @@ void PhoneBook::AddContact(std::string fname, std::string lname, std::string nna
     std::system("clear");
     if (ExistingUserCheck(fname,lname,nname)==1)
     {
-        if (index == 9)
+        if (PhoneBook::index == 8)
         {
-                PhoneBook::peps[7].Contact_rem();
-            index = 8;
+            PhoneBook::peps[7].Contact_rem();
+            PhoneBook::index = 7;
         }
-            PhoneBook::peps[this->index - 1].Contact_init(index,fname,lname,nname,number, secret);
-        this->index++;
+        PhoneBook::peps[PhoneBook::index].Contact_init(index+1,fname,lname,nname,number, secret);
+        PhoneBook::index++;
     }
 }
 void PhoneBook::print_space(int len1,int len2)
@@ -38,7 +38,7 @@ void PhoneBook::print_space(int len1,int len2)
     }
     else
     {
-        std::cout << std::setw(len2 - 10);
+        std::cout << std::setw(abs(3));
     }
 }
 
@@ -66,12 +66,12 @@ void PhoneBook::print()
         std::cout << RED << "No." << DEFAULT;
         std::cout << "| ";
         std::cout << RED  << "First Name." << DEFAULT;
-        std::cout << "| ";
+        std::cout << "|  ";
         std::cout << RED    <<  "Last Name." << DEFAULT;
-        std::cout << "| ";
+        std::cout << "|  ";
         std::cout << RED << "Nick Name." << DEFAULT;
         std::cout << "|  " << std::endl;
-        for (size_t i = 0;  PhoneBook::peps[i].GetFname().empty() == 0; i++)
+        for (size_t i = 0;  i < PhoneBook::index ; i++)
         {
             std::cout << WHITE << "     |  ";
             std::cout <<  PhoneBook::peps[i].GetIndex();
@@ -79,40 +79,40 @@ void PhoneBook::print()
             print_space( PhoneBook::peps[i].GetFname().length(),13);
             print_word(  PhoneBook::peps[i].GetFname());
             std::cout << "|";
-            print_space( PhoneBook::peps[i].GetLname().length(),12);
+            print_space( PhoneBook::peps[i].GetLname().length(),13);
             print_word(  PhoneBook::peps[i].GetLname());
             std::cout << "|";
-            print_space( PhoneBook::peps[i].GetNname().length(),12);
+            print_space( PhoneBook::peps[i].GetNname().length(),13);
             print_word( PhoneBook::peps[i].GetNname());
             std::cout << "|  " << DEFAULT << std::endl;
         }
-    std::cout << GREEN  << "||||||***************************************|||||||"<< std::endl;
-    std::cout << "****************************************************" << DEFAULT << std::endl;
+    std::cout << GREEN  << "||||||***************************************||||||"<< std::endl;
+    std::cout << "***************************************************" << DEFAULT << std::endl;
 }
 }
 void PhoneBook::searchReturn()
 {
-    int index;
+    int i;
     print();
     if (! PhoneBook::peps[0].GetFname().empty())
     {
         std::cout <<WHITE << "enter Index for more info on the contact" << DEFAULT << std::endl;
         std::cin >> std::ws;
-        std::cin >> index;
+        std::cin >> i;
         std::cin.clear();
         std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
-        if(index < 1  || index > this->index)
+        if(i < 1  || i > this->index)
             std::cout << RED << "Plzzz enter a valid index or terminate my program" <<DEFAULT << std::endl;
         else
         {
             std::system("clear");
-            std::cout << GREEN << "********* CONTACT *********" << DEFAULT << std::endl;
-            std::cout << WHITE << "Name:         " <<  PhoneBook::peps[index - 1].GetFname()  << std::endl;
-            std::cout << "Last Name:    " <<  PhoneBook::peps[index - 1].GetLname()  << std::endl;
-            std::cout << "Nick Name:    " <<  PhoneBook::peps[index - 1].GetNname()  << std::endl;
-            std::cout << "Phone Number: " <<  PhoneBook::peps[index - 1].GetNumber()  << std::endl;
-            std::cout << "Dark Secret:  " <<  PhoneBook::peps[index - 1].GetSecret() << DEFAULT  << std::endl;
-            std::cout << GREEN << "***************************" << DEFAULT << std::endl;
+            std::cout << GREEN << "****************** CONTACT ********************" << DEFAULT << std::endl;
+            std::cout << WHITE << "       Name:              " <<  PhoneBook::peps[i - 1].GetFname()  << std::endl;
+            std::cout << "       Last Name:         " <<  PhoneBook::peps[i - 1].GetLname()  << std::endl;
+            std::cout << "       Nick Name:         " <<  PhoneBook::peps[i - 1].GetNname()  << std::endl;
+            std::cout << "       Phone Number:      " <<  PhoneBook::peps[i - 1].GetNumber()  << std::endl;
+            std::cout << "       Dark Secret:       " <<  PhoneBook::peps[i - 1].GetSecret() << DEFAULT  << std::endl;
+            std::cout << GREEN << "***********************************************" << DEFAULT << std::endl;
 
         }    
     }
