@@ -61,7 +61,7 @@ void PhoneBook::print()
         std::cout << BLUE  << "    |  _  | |_ ___ ___ ___   | __  |___ ___| |_ "<< DEFAULT << std::endl;
         std::cout << BLUE  << "    |   __|   | . |   | -_|  | __ -| . | . | '_|"<< DEFAULT << std::endl;
         std::cout << BLUE  << "    |__|  |_|_|___|_|_|___|  |_____|___|___|_,_|"<< DEFAULT << std::endl;
-        std::cout  << GREEN << "||||||**************************************|||||||"<< DEFAULT<< std::endl;
+        std::cout  << GREEN << "||||||*******************************************|||||||"<< DEFAULT<< std::endl;
         std::cout << "     | ";
         std::cout << RED << "No." << DEFAULT;
         std::cout << "| ";
@@ -86,8 +86,8 @@ void PhoneBook::print()
             print_word( PhoneBook::peps[i].GetNname());
             std::cout << "|  " << DEFAULT << std::endl;
         }
-    std::cout << GREEN  << "||||||***************************************||||||"<< std::endl;
-    std::cout << "***************************************************" << DEFAULT << std::endl;
+    std::cout << GREEN  << "||||||*******************************************|||||||"<< std::endl;
+    std::cout << "*******************************************************" << DEFAULT << std::endl;
 }
 }
 void PhoneBook::searchReturn()
@@ -102,7 +102,7 @@ void PhoneBook::searchReturn()
         std::cin.clear();
         std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
         if(i < 1  || i > this->index)
-            std::cout << RED << "Plzzz enter a valid index or terminate my program" <<DEFAULT << std::endl;
+            std::cout << RED << "Plzzz enter a valid index or terminate me!!" <<DEFAULT << std::endl;
         else
         {
             std::system("clear");

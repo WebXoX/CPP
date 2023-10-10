@@ -10,22 +10,15 @@
 class Weapon {
 
     private:
-    int         index;
-    std::string fname;
-    std::string lname;
-    std::string nname;
-    std::string number;
-    std::string secret;
+    std::string type;
 
 
     public:
-    void Contact_rem();
-    void Contact_init(int index,std::string fname, std::string lname, std::string nname,std::string number,std::string secret);
-    int GetIndex();
-    std::string GetFname();
-    std::string GetLname();        
-    std::string GetNname();
-    std::string GetNumber();
-    std::string GetSecret();
+    Weapon();
+    Weapon(std::string type);
+    ~Weapon();
+    
+    std::string getType();
+    void setType(std::string type);
 };
 #endif
