@@ -6,18 +6,18 @@
 #    By: jperinch <jperinch@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/07/12 12:01:22 by jperinch          #+#    #+#              #
-#    Updated: 2023/10/10 10:47:12 by jperinch         ###   ########.fr        #
+#    Updated: 2023/10/11 15:38:03 by jperinch         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 
-NAME = Zombie
+NAME = harl
 
-SRC = main.cpp Weapon.cpp HumanA.cpp HumanB.cpp
+SRC = main.cpp  Harl.cpp
 OBJ	= $(SRC:.cpp=.o)
 
-CFLAGS = -g3 -Wall -Wextra -Werror -std=c++98
-CC = g++
+CFLAGS = -g3 -Wall -Wextra -Werror -std=c++98 -fsanitize=address -g3
+CC = c++
 
 
 all:  $(OBJ) $(NAME)

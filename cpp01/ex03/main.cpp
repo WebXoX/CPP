@@ -1,20 +1,25 @@
-#include "Zombie.hpp"
 #include <iostream>
 #include <string>
+#include "HumanA.hpp"
+#include "HumanB.hpp"
+#include "Weapon.hpp"
 
-Zombie* newZombie( std::string name );
-void randomChump( std::string name );
-Zombie* zombieHorde( int N, std::string name );
-
-
-int main ( )
+int main()
 {
-    Zombie *zman;
-    zman = zombieHorde(2,"Foo");
-    zman[0].announce();
-    zman[1].announce();
-    zman[2].announce();
-    zman[3].announce();
-    zman[4].announce();
-    delete [] zman;
+{
+Weapon club = Weapon("crude spiked club");
+HumanA bob("Bob", club);
+bob.attack();
+club.setType("some other type of club");
+bob.attack();
+}
+{
+Weapon club = Weapon("crude spiked club");
+HumanB jim("Jim");
+jim.setWeapon(club);
+jim.attack();
+club.setType("some other type of club");
+jim.attack();
+}
+return 0;
 }

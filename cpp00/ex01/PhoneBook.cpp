@@ -23,11 +23,15 @@ void PhoneBook::AddContact(std::string fname, std::string lname, std::string nna
     {
         if (PhoneBook::index == 8)
         {
-            PhoneBook::peps[7].Contact_rem();
+            PhoneBook::peps[0].Contact_rem();
+            PhoneBook::peps[PhoneBook::index].Contact_init(1,fname,lname,nname,number, secret);
             PhoneBook::index = 7;
         }
-        PhoneBook::peps[PhoneBook::index].Contact_init(index+1,fname,lname,nname,number, secret);
-        PhoneBook::index++;
+        else
+        {
+            PhoneBook::peps[PhoneBook::index].Contact_init(index+1,fname,lname,nname,number, secret);
+        }
+            PhoneBook::index++;
     }
 }
 void PhoneBook::print_space(int len1,int len2)

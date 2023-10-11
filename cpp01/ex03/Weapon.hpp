@@ -6,7 +6,6 @@
 #include <stdlib.h>
 #include <iomanip>
 #include <limits>
-#include "Contact.hpp"
 class Weapon {
 
     private:
@@ -18,7 +17,7 @@ class Weapon {
     Weapon(std::string type);
     ~Weapon();
     
-    std::string getType();
+    std::string& getType();
     void setType(std::string type);
 };
 #endif

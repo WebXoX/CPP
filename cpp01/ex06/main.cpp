@@ -1,20 +1,15 @@
-#include "Zombie.hpp"
+#include "Harl.hpp"
 #include <iostream>
 #include <string>
 
-Zombie* newZombie( std::string name );
-void randomChump( std::string name );
-Zombie* zombieHorde( int N, std::string name );
 
-
-int main ( )
+int main (int argc, char **argv)
 {
-    Zombie *zman;
-    zman = zombieHorde(2,"Foo");
-    zman[0].announce();
-    zman[1].announce();
-    zman[2].announce();
-    zman[3].announce();
-    zman[4].announce();
-    delete [] zman;
+    Harl h;
+    if (argc == 2)
+    {
+        h.complain(argv[1]);
+    }
+    else
+        std::cout << "[ Probably complaining about insignificant problems ]" <<std::endl;
 }

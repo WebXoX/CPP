@@ -6,7 +6,7 @@
 #include <stdlib.h>
 #include <iomanip>
 #include <limits>
-#include "Contact.hpp"
+#include "Weapon.hpp"
 class HumanB {
 private:
     std::string name;
@@ -15,6 +15,7 @@ private:
     public:
     HumanB();
     HumanB(std::string name);
-    std::string attack();
+    void attack();
+    void setWeapon(Weapon type);
 };
 #endif

@@ -2,7 +2,7 @@
 
 Weapon::Weapon()
 {
-	this->type = "None";
+	this->type.clear();
 }
 
 Weapon::Weapon( std::string type )
@@ -14,7 +14,7 @@ Weapon::~Weapon( )
 	// std::cout << "object Destroyed" << std::endl;
 }
 
-std::string Weapon::getType()
+std::string& Weapon::getType()
 {
 	return(this->type);
 }
