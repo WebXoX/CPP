@@ -7,9 +7,9 @@
 #include <iomanip>
 #include <limits>
 
-typedef void(Harl:: *C)();
 
 class Harl {
+	typedef void(Harl:: *C)();
 
     private:
     void debug( void );

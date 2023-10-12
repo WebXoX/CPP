@@ -1,8 +1,18 @@
 #include <fstream>
 #include <iostream>
 #include <string>
+#include <sys/types.h>
+#include <sys/stat.h>
 
-std::string replace_str(std::string fileName, std::string line,std::string s1,std::string s2 )
+bool isDirectory(char *path)
+{
+	struct stat fileStat;
+	if(stat(path,&fileStat) != 0)
+		return false;
+	return (S_ISDIR(fileStat.st_mode));
+}
+
+std::string replaceStr(std::string fileName, std::string line,std::string s1,std::string s2 )
 {
 	size_t index;
 	std::string left;
@@ -20,19 +30,26 @@ std::string replace_str(std::string fileName, std::string line,std::string s1,st
 	return line;
 }
 
-void openfile(std::string fileName,std::string s1,std::string s2 )
+void openFile(std::string fileName,std::string s1,std::string s2 )
 {
+	struct stat fileStat;
 	std::string line;
 	std::string nline;
 	std::ifstream infile(fileName);
-
-	if (infile.is_open())
+ 	stat((fileName.c_str()), &fileStat);
+	if ( infile.is_open() && S_ISDIR(fileStat.st_mode) == 0)
 	{
 		std::ofstream outfile(fileName+".replace");
 		while (std::getline(infile,line))
 		{
-			nline = replace_str(fileName, line,s1, s2);
-			outfile << nline <<std::endl;
+			if(s1.compare(s2)!=0)
+			{
+				nline = replaceStr(fileName, line,s1, s2);
+				outfile << nline <<std::endl;
+			}
+			else
+				outfile << line <<std::endl;
+
 		}
 		outfile.close();
 		infile.close();
@@ -44,9 +61,9 @@ void openfile(std::string fileName,std::string s1,std::string s2 )
 
 int main(int argc, char **argv)
 {
-	if(argc == 4)
+	if (argc == 4 && argv[2][0] !='\0')
 	{
-		openfile(argv[1],argv[2],argv[3]);
+		openFile(argv[1],argv[2],argv[3]);
 	}
 	else
 		std::cout << "Incorrect format ./replace <fileName> target_str replace_str" << std::endl;

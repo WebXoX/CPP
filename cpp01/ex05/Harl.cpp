@@ -28,7 +28,7 @@ void Harl::complain( std::string level )
 	std::string str[4] ={ "DEBUG","INFO","WARNING","ERROR"};
 	int i = 0;
 	C action = nullptr;
-	while (i<4 && level.compare(str[i]) != 0)
+	while (level.empty() == false && i<4 && level.compare(str[i]) != 0)
 	{
 		i++;
 	}
@@ -50,5 +50,6 @@ void Harl::complain( std::string level )
 			std::cout << "[ Probably complaining about insignificant problems ]" << std::endl;
 			break;
 	}
+	if(action != nullptr)
 		(this->*action)();
 }
