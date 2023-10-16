@@ -3,13 +3,13 @@
 HumanA::HumanA()
 {
 	this->name = "john doe";
-	this->danger = Weapon();
+	// this->danger = Weapon();
 }
 
-HumanA::HumanA(std::string name, Weapon type)
+HumanA::HumanA(std::string name, Weapon &type)
 {
 	this->name = name;
-	this->danger = type;
+	(this->danger) = type;
 }
 
 void HumanA::attack()

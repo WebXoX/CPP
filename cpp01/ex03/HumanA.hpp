@@ -11,11 +11,11 @@ class HumanA {
 
     private:
     std::string name;
-    Weapon danger;
+    Weapon &danger;
 
     public:
     HumanA();
-    HumanA(std::string name,Weapon type);
+    HumanA(std::string name,Weapon &type);
     void attack();
 };
 #endif
