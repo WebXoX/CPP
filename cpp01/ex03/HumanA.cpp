@@ -1,18 +1,11 @@
 #include "HumanA.hpp"
 
-HumanA::HumanA()
-{
-	this->name = "john doe";
-	// this->danger = Weapon();
-}
-
-HumanA::HumanA(std::string name, Weapon &type)
+HumanA::HumanA(std::string name, Weapon &type):danger(type)
 {
 	this->name = name;
-	(this->danger) = type;
 }
 
-void HumanA::attack()
+void HumanA::attack(void)
 {
 	std::cout << HumanA::name << " attacks with their " << this->danger.getType() << std::endl;
 }

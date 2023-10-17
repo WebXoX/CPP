@@ -3,13 +3,11 @@
 HumanB::HumanB()
 {
 	this->name = "john doe";
-	// this->danger = Weapon();
 }
 
 HumanB::HumanB(std::string name)
 {
 	this->name = name;
-	// this->danger = Weapon();
 }
 
 void HumanB::attack()
