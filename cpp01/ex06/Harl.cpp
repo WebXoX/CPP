@@ -47,7 +47,9 @@ void Harl::complain(std::string level )
 			std::cout << "[ Probably complaining about insignificant problems ]" << std::endl;
 			break;
 	}
-	int j = -1;
-	while(++j < 4 && action[j] != nullptr)
-		(this->*action[j])();
+	while(i < 4 && action[i] != nullptr)
+	{
+		(this->*action[i])();
+		i++;
+	}	
 }

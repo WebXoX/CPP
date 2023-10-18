@@ -4,14 +4,6 @@
 #include <sys/types.h>
 #include <sys/stat.h>
 
-bool isDirectory(char *path)
-{
-	struct stat fileStat;
-	if(stat(path,&fileStat) != 0)
-		return false;
-	return (S_ISDIR(fileStat.st_mode));
-}
-
 std::string replaceStr(std::string fileName, std::string line,std::string s1,std::string s2 )
 {
 	size_t index;
