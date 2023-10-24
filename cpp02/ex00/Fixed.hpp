@@ -6,17 +6,17 @@
 #include <stdlib.h>
 #include <iomanip>
 #include <limits>
-
-
-class Fixed final
+class Fixed 
 {
 	public:
     	Fixed ();
     	Fixed (const Fixed &a);
     	~Fixed ();
-		Fixed & operator= (const Fixed &a);
-
+		void operator=(const Fixed &a);
+		int getRawBits( void ) const;
+		void setRawBits( int const raw );
 	private:
 	int number;
+	static const int fractional_bit=8;
 };
 #endif
