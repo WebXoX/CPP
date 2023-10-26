@@ -11,10 +11,11 @@ Fixed::Fixed(const Fixed &a)
 	std::cout << "Fixed copy constructor " << std::endl;
 	*this = a;
 }
-void Fixed::operator=(const Fixed &rhs)
+Fixed& Fixed::operator=(const Fixed &rhs)
 {
 	std::cout << "Fixed copy assignment operator " << std::endl;
-	this->number = rhs.getRawBits();
+	this->number  = rhs.getRawBits();
+	return(*this);
 }
 Fixed::~Fixed ()
 {
