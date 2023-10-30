@@ -2,10 +2,11 @@
 
 ClapTrap::ClapTrap ():name("john doe"),healthStat(10),energyStat(10),attackStat(0)
 {
+	this->healthinit = this->healthStat;
 	std::cout << "ClapTrap default constructor" << std::endl;
 }
 
-ClapTrap::ClapTrap (std::string name, int health, int energy, int attack):name(name),healthStat(health),energyStat(energy),attackStat(attack)
+ClapTrap::ClapTrap (std::string name, int health, int energy, int attack):name(name),healthStat(health),energyStat(energy),attackStat(attack), healthinit(health)
 {
 	std::cout << "ClapTrap constructor called" << std::endl;
 }
@@ -27,7 +28,7 @@ void ClapTrap::attack(const std::string& target)
 	if(this->energyStat != 0 && this->healthStat != 0)
 	{
 		this->energyStat -= 1;
-		std::cout << "ClapTrap " << this->name <<" attacks " << target << std::endl;
+		std::cout << "ClapTrap " << this->name <<" attacks " << target <<  "energy "<< this->energyStat<< std::endl;
 	}
 	else if(this->healthStat <= 0)
 		std::cout << "ClapTrap: player " << this->name <<" can not attack he is already dead! " << std::endl;
@@ -49,7 +50,7 @@ void ClapTrap::takeDamage(unsigned int amount)
 	{
 		this->energyStat -= 1;
 		this->healthStat -= amount;
-		std::cout << "causing " << amount <<" points of damage! " << std::endl;
+		std::cout << "causing " << amount <<" points of damage! energy "<< this->energyStat << std::endl;
 		if (healthStat <= 0)
 		{
 			std::cout << "ClapTrap: player " << this->name << " has died! " << std::endl;
@@ -64,12 +65,14 @@ void ClapTrap::takeDamage(unsigned int amount)
 }
 void ClapTrap::beRepaired(unsigned int amount)
 {
-	if(this->energyStat != 0)
+	if(this->energyStat != 0 && amount <= this->healthinit && amount >= 0 )
 	{
 		this->energyStat -= 1;
 		this->healthStat += amount;
 		std::cout << "repaired " << amount <<" points of damage taken! " << std::endl;
 	}
+	else if(this->energyStat != 0 &&( amount >= this->healthinit ||  amount < 0))
+		std::cout << "ClapTrap " << this->name <<" can only repair till " <<this->healthinit << std::endl;
 	else
 	{
 		std::cout << "ClapTrap " << this->name <<" has no energy " << std::endl;

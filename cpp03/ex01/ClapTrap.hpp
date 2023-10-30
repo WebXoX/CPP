@@ -21,6 +21,7 @@ class ClapTrap
 		std::string name;
 		int healthStat;
 		int energyStat;
+		int healthinit;
 		int attackStat;
 };
 #endif
