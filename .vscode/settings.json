@@ -72,7 +72,9 @@
 		"memory_resource": "cpp",
 		"numeric": "cpp",
 		"random": "cpp",
-		"numbers": "cpp"
+		"numbers": "cpp",
+		"__functional_03": "cpp",
+		"scavtrap.hpp": "c"
 	},
 	"C_Cpp.errorSquiggles": "disabled"
 }

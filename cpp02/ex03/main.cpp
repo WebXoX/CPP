@@ -1,18 +1,15 @@
+#include "Point.hpp"
 #include "Fixed.hpp"
 bool bsp( Point const a, Point const b, Point const c, Point const point);
+
 int main( void ) {
-Fixed a;
-Fixed const b( 10 );
-Fixed const c( 42.42f );
-Fixed const d( b );
-a = Fixed( 1234.4321f );
-std::cout << "a is " << a << std::endl;
-std::cout << "b is " << b << std::endl;
-std::cout << "c is " << c << std::endl;
-std::cout << "d is " << d << std::endl;
-std::cout << "a is " << a.toInt() << " as integer" << std::endl;
-std::cout << "b is " << b.toInt() << " as integer" << std::endl;
-std::cout << "c is " << c.toInt() << " as integer" << std::endl;
-std::cout << "d is " << d.toInt() << " as integer" << std::endl;
+Point a = Point(0.0,0.0) ;
+Point b = Point(10.0,30.0) ;
+Point c = Point(20.0,0.0) ;
+Point d = Point(20.0,0.0) ;
+if(bsp(a,b,c,d))
+	std::cout << "The Point is inside the triangle" << std::endl;
+else
+	std::cout << "The Point is outside the triangle" << std::endl;
 return 0;
 }

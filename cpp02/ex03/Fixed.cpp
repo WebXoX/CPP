@@ -2,18 +2,18 @@
 
 Fixed::Fixed()
 {
-	std::cout << "Fixed default constructor " << std::endl;
+	std::cout << "Fixed default constructor value:0 " << std::endl;
 	this->number = 0;
 }
 Fixed::Fixed(const int numb)
 {
-	std::cout << "Fixed  constructor with int argument" << std::endl;
+	std::cout << "Fixed  constructor with int argument: " << numb << std::endl;
 	this->number = numb * 1 << fractional_bit;
 }
 
 Fixed::Fixed(const float float_numb)
 {
-	std::cout << "Fixed  constructor with int argument" << std::endl;
+	std::cout << "Fixed  constructor with float argument: " << float_numb << std::endl;
 	
 	this->number = (roundf((float)float_numb * (1 << fractional_bit)));
 }

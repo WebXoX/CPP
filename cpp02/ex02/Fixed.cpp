@@ -89,7 +89,6 @@ Fixed Fixed::operator++(int)
 	Fixed temp;
 	temp.setRawBits(this->getRawBits());
 	this->number++;
-	// this->number = toFloat() + rhs.toFloat() * (1 << fractional_bit);
 	return(temp);
 }
 Fixed& Fixed::operator*(const Fixed &rhs)

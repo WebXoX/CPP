@@ -1,30 +1,26 @@
 #include"Point.hpp"
 
-Point::Point ()
+Point::Point ():x(),y()
 {
     std::cout << "Point default constructor called!!" << std::endl;
-    this->x = Fixed();
-    this->y = Fixed();
 }
-Point::Point (Fixed x, Fixed y)
+Point::Point (const float x, const float y):x(x),y(y)
 {
     std::cout << "Point constructor called!!" << std::endl;
-    this->x = x;
-    this->y = y;
 }
-Point::Point (const Point &a)
+Point::Point (Fixed x, Fixed y):x(x), y(y)
+{
+    std::cout << "Point constructor called!!" << std::endl;
+}
+Point::Point (const Point &a):x(a.x), y(a.y)
 {
     std::cout << "Point copy constructor called!!" << std::endl;
-	this->x = a->x.getRawBits();
-	this->y = a->y.getRawBits();
 }
 
 Point& Point::operator=(const Point &a)
 {
-
     std::cout << "Point copy constructor called!!" << std::endl;
-	this->x = a.getPointX().getRawBits();
-	this->y = a.getPointY().getRawBits();
+    *this = a;
     return(*this);
 }
 
