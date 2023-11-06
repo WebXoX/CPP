@@ -7,7 +7,7 @@
 #include <iomanip>
 #include <limits>
 #include "ClapTrap.hpp"
-class ScavTrap: public ClapTrap 
+class ScavTrap: public virtual ClapTrap 
 {
 	public:
     	ScavTrap ();

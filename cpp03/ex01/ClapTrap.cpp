@@ -28,7 +28,7 @@ void ClapTrap::attack(const std::string& target)
 	if(this->energyStat != 0 && this->healthStat != 0)
 	{
 		this->energyStat -= 1;
-		std::cout << "ClapTrap " << this->name <<" attacks " << target <<  "energy "<< this->energyStat<< std::endl;
+		std::cout << "ClapTrap " << this->name <<" attacks " << target <<  " energy "<< this->energyStat<< std::endl;
 	}
 	else if(this->healthStat <= 0)
 		std::cout << "ClapTrap: player " << this->name <<" can not attack he is already dead! " << std::endl;

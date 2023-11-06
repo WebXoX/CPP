@@ -1,9 +1,9 @@
-#include "ScavTrap.hpp"
+#include "FragTrap.hpp"
 
 int main ()
 {
 	int n;
-	ScavTrap player1 = ScavTrap("joe");
+	FragTrap player1 = FragTrap("joe");
 	std::cout << "----------------------------------->> dead test\n";
 	for (size_t i = 0; i < 11; i++)
 	{
@@ -19,5 +19,6 @@ int main ()
 	for (size_t i = 0; i < 46; i++)
 	{
 		player1.attack("jeff");
+		player1.highFivesGuys();
 	}
 }

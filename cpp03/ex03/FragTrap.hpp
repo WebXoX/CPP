@@ -7,7 +7,7 @@
 #include <iomanip>
 #include <limits>
 #include "ClapTrap.hpp"
-class FragTrap: public ClapTrap 
+class FragTrap: public virtual ClapTrap 
 {
 	public:
     	FragTrap ();

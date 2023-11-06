@@ -6,14 +6,14 @@
 #    By: jperinch <jperinch@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/07/12 12:01:22 by jperinch          #+#    #+#              #
-#    Updated: 2023/10/30 13:40:09 by jperinch         ###   ########.fr        #
+#    Updated: 2023/11/06 11:03:31 by jperinch         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 
 NAME = Fixed
 
-SRC = main.cpp ClapTrap.cpp ScavTrap.cpp
+SRC = main.cpp ClapTrap.cpp FragTrap.cpp
 OBJ	= $(SRC:.cpp=.o)
 
 CFLAGS = -Wall -Wextra -Werror -std=c++98
