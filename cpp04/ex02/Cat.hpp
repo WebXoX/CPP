@@ -6,7 +6,9 @@
 #include <stdlib.h>
 #include <iomanip>
 #include <limits>
-class Cat 
+#include "Animal.hpp"
+#include "Brain.hpp"
+class Cat: public Animal
 {
 	public:
     	Cat ();
@@ -14,8 +16,11 @@ class Cat
     	Cat (const Cat &a);
     	~Cat ();
 		Cat& operator=(const Cat &a);
-		virtual makeSound();
-	protected:
+		void makeSound() const;
+		Brain* getBrains();
+
+	private:
 		std::string type;
+		Brain* brains;
 };
 #endif
