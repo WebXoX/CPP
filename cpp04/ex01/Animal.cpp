@@ -21,7 +21,6 @@ Animal::~Animal ()
 
 Animal& Animal::operator=(const Animal &rhs)
 {
-	// delete this;
 	std::cout << "Animal copy assignment operator = " << std::endl;
 	this->type =(rhs.getType());
 	return(*this);

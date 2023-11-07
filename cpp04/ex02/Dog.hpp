@@ -6,6 +6,7 @@
 #include <stdlib.h>
 #include <iomanip>
 #include <limits>
+#include "Brain.hpp"
 #include "Animal.hpp"
 class Dog:public Animal
 {
@@ -16,7 +17,9 @@ class Dog:public Animal
     	~Dog ();
 		Dog& operator=(const Dog &a);
 		void makeSound() const;
+		Brain* getBrains() const;
 	private:
+		Brain* brains;
 		std::string type;
 };
 #endif
