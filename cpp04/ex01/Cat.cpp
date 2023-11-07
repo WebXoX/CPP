@@ -1,22 +1,30 @@
 #include "Cat.hpp"
+#include "Brain.hpp"
 
-Cat::Cat ()
+Cat::Cat ():Animal()
 {
+	this->brains = new Brain();
+
 	std::cout << "Cat default constructor" << std::endl;
 
 }
-Cat::Cat (std::string type)
+Cat::Cat (std::string type):Animal(type)
 {
+	this->brains = new Brain();
 	std::cout << "Cat constructor called" << std::endl;
-	this->type = type;
 }
 Cat::Cat (const Cat &a)
 {
-
+	(*this) = a;
 }
 Cat::~Cat ()
 {
+	delete this->brains;
 	std::cout << "Cat distructor called" << std::endl;
+}
+Brain *Cat::getBrains()
+{
+ return(this->brains);
 }
 
 Cat& Cat::operator=(const Cat &rhs)
@@ -25,7 +33,7 @@ Cat& Cat::operator=(const Cat &rhs)
 	*this=(rhs);
 	return(*this);
 }
-Cat::makeSound()
+void Cat::makeSound() const
 {
-	std::cout << "Sound!!" << std::endl;
+	std::cout << "meow!!" << std::endl;
 }

@@ -6,6 +6,7 @@
 #include <stdlib.h>
 #include <iomanip>
 #include <limits>
+#include "Animal.hpp"
 class Cat: public Animal
 {
 	public:
@@ -14,8 +15,8 @@ class Cat: public Animal
     	Cat (const Cat &a);
     	~Cat ();
 		Cat& operator=(const Cat &a);
-		makeSound();
-	protected:
+		void makeSound() const;
+	private:
 		std::string type;
 };
 #endif

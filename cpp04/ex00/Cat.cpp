@@ -1,18 +1,17 @@
 #include "Cat.hpp"
 
-Cat::Cat ()
+Cat::Cat ():Animal()
 {
 	std::cout << "Cat default constructor" << std::endl;
 
 }
-Cat::Cat (std::string type)
+Cat::Cat (std::string type):Animal(type)
 {
 	std::cout << "Cat constructor called" << std::endl;
-	this->type = type;
 }
 Cat::Cat (const Cat &a)
 {
-
+	(*this) = a;
 }
 Cat::~Cat ()
 {
@@ -25,7 +24,7 @@ Cat& Cat::operator=(const Cat &rhs)
 	*this=(rhs);
 	return(*this);
 }
-Cat::makeSound()
+void Cat::makeSound() const
 {
 	std::cout << "meow!!" << std::endl;
 }

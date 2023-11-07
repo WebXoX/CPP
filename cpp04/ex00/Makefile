@@ -6,14 +6,14 @@
 #    By: jperinch <jperinch@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/07/12 12:01:22 by jperinch          #+#    #+#              #
-#    Updated: 2023/11/06 15:46:24 by jperinch         ###   ########.fr        #
+#    Updated: 2023/11/07 10:57:21 by jperinch         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 
 NAME = Fixed
 
-SRC = Dog.cpp Animal.cpp Cat.cpp main.cpp
+SRC = Animal.cpp Dog.cpp  Cat.cpp  notAnimal.cpp notCat.cpp main.cpp
 OBJ	= $(SRC:.cpp=.o)
 
 CFLAGS = -Wall -Wextra -Werror -std=c++98
