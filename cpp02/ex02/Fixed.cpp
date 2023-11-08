@@ -13,7 +13,7 @@ Fixed::Fixed(const int numb)
 
 Fixed::Fixed(const float float_numb)
 {
-	std::cout << "Fixed  constructor with int argument" << std::endl;
+	std::cout << "Fixed  constructor with float argument" << std::endl;
 	
 	this->number = (roundf((float)float_numb * (1 << fractional_bit)));
 }
