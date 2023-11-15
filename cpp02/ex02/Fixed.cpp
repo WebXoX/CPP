@@ -28,7 +28,7 @@ Fixed::~Fixed ()
 	std::cout << "Fixed distructor called" << std::endl;
 }
 
-Fixed& Fixed::operator=(const Fixed &rhs)
+Fixed& Fixed::operator==(const Fixed &rhs)
 {
 	std::cout << "Fixed copy assignment operator = " << std::endl;
 	this->number = (rhs.getRawBits());

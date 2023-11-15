@@ -15,7 +15,7 @@ class Fixed
     	Fixed (const float numb);
     	Fixed (const Fixed &a);
     	~Fixed ();
-		Fixed& operator=(const Fixed &a);
+		Fixed& operator==(const Fixed &a);
 		Fixed& operator!=(const Fixed &a);
 		Fixed& operator>=(const Fixed &a);
 		Fixed& operator<=(const Fixed &a);

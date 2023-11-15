@@ -1,11 +1,11 @@
 #include "DiamondTrap.hpp"
-DiamondTrap::DiamondTrap ():ScavTrap("john doe"),FragTrap("john doe")
+DiamondTrap::DiamondTrap ():ScavTrap(),FragTrap()
 {
 	this->name = "john doe";
 	std::cout << "DiamondTrap default constructor" << std::endl;
 }
 
-DiamondTrap::DiamondTrap (std::string name):ScavTrap("john doe"),FragTrap("john doe")
+DiamondTrap::DiamondTrap (std::string name):ScavTrap(name),FragTrap(name)
 {
 	this->name = name;
 	std::cout << "DiamondTrap constructor called" << std::endl;
