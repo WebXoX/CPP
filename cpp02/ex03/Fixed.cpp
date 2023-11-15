@@ -2,18 +2,18 @@
 
 Fixed::Fixed()
 {
-	std::cout << "Fixed default constructor value:0 " << std::endl;
+	std::cout << "Fixed default constructor " << std::endl;
 	this->number = 0;
 }
 Fixed::Fixed(const int numb)
 {
-	std::cout << "Fixed  constructor with int argument: " << numb << std::endl;
+	std::cout << "Fixed  constructor with int argument" << std::endl;
 	this->number = numb * 1 << fractional_bit;
 }
 
 Fixed::Fixed(const float float_numb)
 {
-	std::cout << "Fixed  constructor with float argument: " << float_numb << std::endl;
+	std::cout << "Fixed  constructor with float argument" << std::endl;
 	
 	this->number = (roundf((float)float_numb * (1 << fractional_bit)));
 }
@@ -30,91 +30,78 @@ Fixed::~Fixed ()
 
 Fixed& Fixed::operator=(const Fixed &rhs)
 {
-	std::cout << "Fixed copy assignment operator = " << std::endl;
 	this->number = (rhs.getRawBits());
 	return(*this);
 }
 Fixed& Fixed::operator!=(const Fixed &rhs)
 {
-	std::cout << "Fixed copy assignment operator != " << std::endl;
 	if (this->number != rhs.getRawBits())
 		this->number = (rhs.getRawBits());
 	return(*this);
 }
 Fixed& Fixed::operator>=(const Fixed &rhs)
 {
-	std::cout << "Fixed copy assignment operator >=" << std::endl;
 	if (this->number >= rhs.getRawBits())
 		this->number = (rhs.getRawBits());
 	return(*this);
 }
 Fixed& Fixed::operator<=(const Fixed &rhs)
 {
-	std::cout << "Fixed copy assignment operator <=" << std::endl;
 	if (this->number <= rhs.getRawBits())
 		this->number = (rhs.getRawBits());
 	return(*this);
 }
 Fixed& Fixed::operator>(const Fixed &rhs)
 {
-	std::cout << "Fixed copy assignment operator >" << std::endl;
 	if (this->number > rhs.getRawBits())
 		this->number = (rhs.getRawBits());
 	return(*this);
 }
 Fixed& Fixed::operator<(const Fixed &rhs)
 {
-	std::cout << "Fixed copy assignment operator <" << std::endl;
 	if (this->number < rhs.getRawBits())
 		this->number = (rhs.getRawBits());
 	return(*this);
 }
 Fixed& Fixed::operator+(const Fixed &rhs)
 {
-	std::cout << "Fixed copy assignment operator " << std::endl;
-	
 	this->number = toFloat() + rhs.toFloat() * (1 << fractional_bit);
 	return(*this);
 }
 Fixed& Fixed::operator++()
 {
-	std::cout << "Fixed copy assignment operator ++" << std::endl;
-	
 	this->number++;
 	return(*this);
 }
 Fixed Fixed::operator++(int)
 {
-	std::cout << "Fixed copy assignment operator ++" << std::endl;
 	Fixed temp;
 	temp.setRawBits(this->getRawBits());
 	this->number++;
-	// this->number = toFloat() + rhs.toFloat() * (1 << fractional_bit);
 	return(temp);
 }
 Fixed& Fixed::operator*(const Fixed &rhs)
 {
-	std::cout << "Fixed copy assignment operator " << std::endl;
+	// std::cout << "Fixed copy assignment operator " << std::endl;
 	
 	this->number = toFloat() *  rhs.toFloat() * (1 << fractional_bit);
 	return(*this);
 }
 Fixed& Fixed::operator-(const Fixed &rhs)
 {
-	std::cout << "Fixed copy assignment operator " << std::endl;
+	// std::cout << "Fixed copy assignment operator " << std::endl;
 	this->number = toFloat() -  rhs.toFloat() * (1 << fractional_bit);
 	return(*this);
 }
 Fixed& Fixed::operator--()
 {
-	std::cout << "Fixed copy assignment operator --" << std::endl;
+	// std::cout << "Fixed copy assignment operator --" << std::endl;
 	
 	this->number--;
 	return(*this);
 }
 Fixed Fixed::operator--(int)
 {
-	std::cout << "Fixed copy assignment operator --" << std::endl;
 	Fixed temp;
 	temp.setRawBits(this->getRawBits());
 	this->number--;
@@ -123,7 +110,6 @@ Fixed Fixed::operator--(int)
 }
 Fixed& Fixed::operator/(const Fixed &rhs)
 {
-	std::cout << "Fixed copy assignment operator " << std::endl;
 	this->number = toFloat() /  rhs.toFloat() * (1 << fractional_bit);
 	return(*this);
 }
@@ -167,14 +153,10 @@ float Fixed::toFloat( void ) const
 }
 int Fixed::getRawBits( void ) const
 {
-	std::cout << "Fixed getRawBits() called" << std::endl;
 	return this->number;
 }
 
 void Fixed::setRawBits( int const raw )
 {
-	std::cout << "Fixed setRawBits() called" << std::endl;
 	this->number = raw;
 }
-
-

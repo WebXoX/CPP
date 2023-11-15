@@ -25,7 +25,7 @@ void ScavTrap::guardGate()
 }
 ScavTrap& ScavTrap::operator=(const ScavTrap &a)
 {
-	std::cout << "ClapTrap copy assignment operator = " << std::endl;
+	std::cout << "ScavTrap copy assignment operator = " << std::endl;
 	*this=(a);
 	return(*this);
 }
