@@ -17,21 +17,26 @@ Brain::Brain (const Brain &a)
 
 Brain::~Brain ()
 {
-	// delete[] this->ideas;
+	delete[] this->ideas;
 	std::cout << "Brain distructor called" << std::endl;
 }
 
-Brain& Brain::operator=(const Brain &rhs)
+// Brain& Brain::operator=(const Brain &rhs)
+// {
+// 	// delete this;
+// 	std::cout << "Brain copy assignment operator = " << std::endl;
+// 	for (size_t i = 0;rhs.ideas[i].empty() != 0 && i <100; i++)
+// 	{
+// 			this->ideas[i] =rhs.ideas[i];
+// 	}
+// 	return(*this);
+// }
+Brain & Brain::operator=(Brain const & rhs)
 {
-	// delete this;
-	std::cout << "Brain copy assignment operator = " << std::endl;
-	for (size_t i = 0;rhs.ideas[i].empty() != 0 && i <100; i++)
-	{
-			this->ideas[i] =rhs.ideas[i];
-	}
-	return(*this);
+	for (int i = 0; i < 100; i++)
+		this->ideas[i] = rhs.ideas[i];
+	return (*this);
 }
-
 std::string *Brain::getIdeas(void) 
 {
 	return (this->ideas);

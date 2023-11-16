@@ -11,10 +11,16 @@ Dog::Dog (std::string type):Animal(type)
 	this->brains = new Brain();
 	std::cout << "Dog constructor called" << std::endl;
 }
-Dog::Dog (const Dog &a)
+Dog::Dog (const Dog &a):Animal(a)
 {
 	if(this != &a)
+	{
 		type=a.getType();
+		for (size_t i = 0; i < 100; i++)
+		{
+			brains->getIdeas()[i]=a.getBrains()->getIdeas()[i];
+		}
+	}
 }
 Dog::~Dog ()
 {
@@ -26,7 +32,13 @@ Dog& Dog::operator=(const Dog &rhs)
 {
 	std::cout << "Dog copy assignment operator = " << std::endl;
 	if(this != &rhs)
+	{
 		type=rhs.getType();
+		for (size_t i = 0; i < 100; i++)
+		{
+			brains->getIdeas()[i]=rhs.getBrains()->getIdeas()[i];
+		}
+	}
 	return(*this);
 }
 Brain* Dog::getBrains()	const

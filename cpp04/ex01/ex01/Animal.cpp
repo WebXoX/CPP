@@ -10,10 +10,8 @@ Animal::Animal (std::string type)
 	std::cout << "Animal constructor called" << std::endl;
 	this->type = type;
 }
-Animal::Animal (const Animal &a)
+Animal::Animal (const Animal &a):type(a.type)
 {
-	if(this != &a)
-		type=a.getType();
 }
 Animal::~Animal ()
 {

@@ -17,10 +17,10 @@ class Cat: public Animal
     	~Cat ();
 		Cat& operator=(const Cat &a);
 		void makeSound() const;
-		Brain* getBrains();
+		Brain* getBrains() const;
 
 	private:
-		std::string type;
+		std::string type ;
 		Brain* brains;
 };
 #endif

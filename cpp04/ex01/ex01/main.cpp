@@ -16,13 +16,13 @@ for(int i =0; i<5;i++)
 	j[5+i] = new Cat();
 }
 	std::cout << std::endl;
-	j[0] = j[1];
+	// j[0] = j[1];
 	std::cout << std::endl;
 
-for (size_t i = 0; i < 1; i++)
+for (size_t i = 0; i < 10; i++)
 {
 	std::cout << i+1 << "----------------- >"  << std::endl;
-	delete  j[2];
+	delete  j[i];
 }
 	std::cout << std::endl;
 
@@ -42,18 +42,25 @@ for (size_t i = 0; i < 1; i++)
 	for (size_t i = 0; i < 100; i++)
 	{
 		std::cout <<cat->getBrains()->getIdeas()[i];
+		std::cout<< std::endl;
 	}
 	std::cout<< std::endl;
 
 	std::cout <<"cat: bert"<< std::endl;
-
+	cat = cat2;
 	for (size_t i = 0; i < 100; i++)
 	{
 		std::cout <<cat2->getBrains()->getIdeas()[i];
+		std::cout<< std::endl;
 	}
-
+	for (size_t i = 0; i < 100; i++)
+	{
+		std::cout <<cat->getBrains()->getIdeas()[i];
+		std::cout<< std::endl;
+	}
 	
-	std::cout<< std::endl;
+	delete cat;
+	delete cat2;
 
 return 0;
 }

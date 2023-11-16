@@ -16,7 +16,7 @@ NAME = Fixed
 SRC = Animal.cpp Dog.cpp  Cat.cpp  notAnimal.cpp notCat.cpp  Brain.cpp main.cpp
 OBJ	= $(SRC:.cpp=.o)
 
-CXXFLAGS = -Wall -Wextra -Werror -std=c++98
+CXXFLAGS = -Wall -Wextra -Werror -std=c++98 -fsanitize=address -g3
 CXX = c++
 
 

@@ -9,11 +9,11 @@ notCat::notCat (std::string type):notAnimal(type)
 {
 	std::cout << "notCat constructor called" << std::endl;
 }
-notCat::notCat (const notCat &a)
-{
-	if(this != &a)
-		type=a.getType();
-}
+// notCat::notCat (const notCat &a)
+// {
+// 	if(this != &a)
+// 		type=a.getType();
+// }
 notCat::~notCat ()
 {
 	std::cout << "notCat distructor called" << std::endl;
