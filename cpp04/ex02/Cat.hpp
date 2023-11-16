@@ -12,15 +12,14 @@ class Cat: public Animal
 {
 	public:
     	Cat ();
-    	Cat (std::string name);
     	Cat (const Cat &a);
     	~Cat ();
 		Cat& operator=(const Cat &a);
 		void makeSound() const;
-		Brain* getBrains();
+		Brain* getBrains() const;
 
 	private:
-		std::string type;
+		std::string type ;
 		Brain* brains;
 };
 #endif

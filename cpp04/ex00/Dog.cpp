@@ -1,29 +1,28 @@
 #include "Dog.hpp"
 
-Dog::Dog ():Animal()
+Dog::Dog ():Animal("dog")
 {
 	std::cout << "Dog default constructor" << std::endl;
 }
-Dog::Dog (std::string type):Animal(type)
+
+Dog::Dog (const Dog &a):Animal(a)
 {
-	std::cout << "Dog constructor called" << std::endl;
-}
-Dog::Dog (const Dog &a)
-{
-	*this=(a);
+	// if(this != &a)
+	// 	type=a.getType();
 }
 Dog::~Dog ()
 {
 	std::cout << "Dog distructor called" << std::endl;
 }
+void Dog::makeSound() const
+{
+	std::cout << "Bark!!" << std::endl;
+}
 
 Dog& Dog::operator=(const Dog &rhs)
 {
 	std::cout << "Dog copy assignment operator = " << std::endl;
-	*this=(rhs);
+	if(this != &rhs)
+		type=rhs.getType();
 	return(*this);
-}
-void Dog::makeSound() const
-{
-	std::cout << "Bark!!" << std::endl;
 }

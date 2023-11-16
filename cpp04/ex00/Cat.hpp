@@ -11,12 +11,9 @@ class Cat: public Animal
 {
 	public:
     	Cat ();
-    	Cat (std::string name);
     	Cat (const Cat &a);
     	~Cat ();
 		Cat& operator=(const Cat &a);
 		void makeSound() const;
-	private:
-		std::string type;
 };
 #endif

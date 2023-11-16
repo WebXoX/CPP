@@ -1,7 +1,7 @@
 #include "Animal.hpp"
 #include "Cat.hpp"
-#include "notAnimal.hpp"
-#include "notCat.hpp"
+#include "WrongAnimal.hpp"
+#include "WrongCat.hpp"
 #include "Dog.hpp"
 int main()
 {
@@ -20,11 +20,11 @@ delete meta;
 delete j;
 delete i;
  std::cout << "\n";
-const notAnimal* metas = new notAnimal();
+const WrongAnimal* metas = new WrongAnimal();
  std::cout << "\n";
-const notAnimal* is = new notCat();
+const WrongAnimal* is = new WrongCat();
 std::cout << is->getType() << " " << std::endl;
-is->makeSound(); //will output the cat sound!
+is->makeSound(); //will output the not cat sound!
 metas->makeSound();
  std::cout << "\n";
 
