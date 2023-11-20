@@ -19,7 +19,6 @@ class Cat: public Animal
 		Brain* getBrains() const;
 
 	private:
-		std::string type ;
 		Brain* brains;
 };
 #endif

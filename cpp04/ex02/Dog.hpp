@@ -19,6 +19,5 @@ class Dog:public Animal
 		Brain* getBrains() const;
 	private:
 		Brain* brains;
-		std::string type;
 };
 #endif
