@@ -6,25 +6,25 @@
 #    By: jperinch <jperinch@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/07/12 12:01:22 by jperinch          #+#    #+#              #
-#    Updated: 2023/11/07 14:24:51 by jperinch         ###   ########.fr        #
+#    Updated: 2023/11/16 14:51:50 by jperinch         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 
-NAME = Fixed
+NAME = Animal
 
-SRC = Animal.cpp Dog.cpp  Cat.cpp  notAnimal.cpp notCat.cpp  Brain.cpp main.cpp
+SRC = Animal.cpp Dog.cpp  Cat.cpp  WrongAnimal.cpp WrongCat.cpp  Brain.cpp main.cpp
 OBJ	= $(SRC:.cpp=.o)
 
-CFLAGS = -Wall -Wextra -Werror -std=c++98
-CC = c++
+CXXFLAGS = -Wall -Wextra -Werror -std=c++98
+CXX = c++
 
 
 all:  $(OBJ) $(NAME)
 
 
 $(NAME): $(OBJ)
-	$(CC) $(CFLAGS) $(OBJ) -o $(NAME)
+	$(CXX) $(CXXFLAGS) $(OBJ) -o $(NAME)
 
 clean:
 	rm -rf *.o 

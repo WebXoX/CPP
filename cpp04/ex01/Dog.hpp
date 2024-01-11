@@ -12,7 +12,6 @@ class Dog:public Animal
 {
 	public:
     	Dog ();
-    	Dog (std::string name);
     	Dog (const Dog &a);
     	~Dog ();
 		Dog& operator=(const Dog &a);
@@ -20,6 +19,5 @@ class Dog:public Animal
 		Brain* getBrains() const;
 	private:
 		Brain* brains;
-		std::string type;
 };
 #endif

@@ -12,7 +12,8 @@ Animal::Animal (std::string type)
 }
 Animal::Animal (const Animal &a)
 {
-	*this=(a);
+	if(this != &a)
+		type=a.getType();
 }
 Animal::~Animal ()
 {
@@ -21,9 +22,9 @@ Animal::~Animal ()
 
 Animal& Animal::operator=(const Animal &rhs)
 {
-	// delete this;
 	std::cout << "Animal copy assignment operator = " << std::endl;
-	this->type =(rhs.getType());
+	if(this != &rhs)
+		type=rhs.getType();
 	return(*this);
 }
 std::string Animal::getType() const

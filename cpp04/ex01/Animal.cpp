@@ -10,9 +10,9 @@ Animal::Animal (std::string type)
 	std::cout << "Animal constructor called" << std::endl;
 	this->type = type;
 }
-Animal::Animal (const Animal &a)
+Animal::Animal (const Animal &a):type(a.type)
 {
-	*this=(a);
+	std::cout << "Animal copy constructor called" << std::endl;
 }
 Animal::~Animal ()
 {
@@ -22,7 +22,8 @@ Animal::~Animal ()
 Animal& Animal::operator=(const Animal &rhs)
 {
 	std::cout << "Animal copy assignment operator = " << std::endl;
-	this->type =(rhs.getType());
+	if(this != &rhs)
+		type=rhs.getType();
 	return(*this);
 }
 std::string Animal::getType() const
