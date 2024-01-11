@@ -6,7 +6,7 @@
 #    By: jperinch <jperinch@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/07/12 12:01:22 by jperinch          #+#    #+#              #
-#    Updated: 2023/10/11 12:37:11 by jperinch         ###   ########.fr        #
+#    Updated: 2023/12/13 14:53:33 by jperinch         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,7 +17,7 @@ SRC = main.cpp
 OBJ	= $(SRC:.cpp=.o)
 
 CFLAGS = -g3 -Wall -Wextra -Werror -std=c++98
-CC = g++
+CC = c++
 
 
 all:  $(OBJ) $(NAME)
