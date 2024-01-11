@@ -26,41 +26,41 @@ for (size_t i = 0; i < 10; i++)
 }
 	std::cout << std::endl;
 
-	Cat *cat = new Cat("yoda");
+	Dog *dog = new Dog("yoda");
 	std::cout << std::endl;
 
-	Cat *cat2 = new Cat("bert");
+	Dog *dog2 = new Dog("bert");
 	std::cout << std::endl;
 
-	for (size_t i = 0; i < 100; i++)
-	{
-		cat->getBrains()->setIdeas("purrr",i);
-		cat2->getBrains()->setIdeas("aooow",i);
-	}
+	// for (size_t i = 0; i < 100; i++)
+	// {
+	// 	cat->getBrains()->setIdeas("purrr",i);
+	// 	cat2->getBrains()->setIdeas("aooow",i);
+	// }
 	std::cout <<"cat: yoda"<< std::endl;
 	
-	for (size_t i = 0; i < 100; i++)
-	{
-		std::cout <<cat->getBrains()->getIdeas()[i];
-		std::cout<< std::endl;
-	}
+	// for (size_t i = 0; i < 100; i++)
+	// {
+	// 	std::cout <<cat->getBrains()->getIdeas()[i];
+	// 	std::cout<< std::endl;
+	// }
 	std::cout<< std::endl;
 
 	std::cout <<"cat: bert"<< std::endl;
-	cat = cat2;
-	for (size_t i = 0; i < 100; i++)
-	{
-		std::cout <<cat2->getBrains()->getIdeas()[i];
-		std::cout<< std::endl;
-	}
-	for (size_t i = 0; i < 100; i++)
-	{
-		std::cout <<cat->getBrains()->getIdeas()[i];
-		std::cout<< std::endl;
-	}
+	dog = dog2;
+	// for (size_t i = 0; i < 100; i++)
+	// {
+	// 	std::cout <<cat2->getBrains()->getIdeas()[i];
+	// 	std::cout<< std::endl;
+	// }
+	// for (size_t i = 0; i < 100; i++)
+	// {
+	// 	std::cout <<cat->getBrains()->getIdeas()[i];
+	// 	std::cout<< std::endl;
+	// }
 	
-	delete cat;
-	delete cat2;
+	delete dog;
+	delete dog2;
 
 return 0;
 }

@@ -13,7 +13,8 @@ Dog::Dog (std::string type):Animal(type)
 }
 Dog::Dog (const Dog &a)
 {
-	*this=(a);
+	if(this != &a)
+		type=a.getType();
 }
 Dog::~Dog ()
 {
@@ -23,7 +24,8 @@ Dog::~Dog ()
 Dog& Dog::operator=(const Dog &rhs)
 {
 	std::cout << "Dog copy assignment operator = " << std::endl;
-	*this=(rhs);
+	if(this != &rhs)
+		type=rhs.getType();
 	return(*this);
 }
 Brain* Dog::getBrains()	const
