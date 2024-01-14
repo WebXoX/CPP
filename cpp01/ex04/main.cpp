@@ -6,6 +6,7 @@
 
 std::string replaceStr(std::string fileName, std::string line,std::string s1,std::string s2 )
 {
+	(void)fileName ;
 	size_t index;
 	std::string left;
 	std::string right;

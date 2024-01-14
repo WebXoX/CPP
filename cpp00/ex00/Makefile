@@ -1,12 +1,12 @@
 # **************************************************************************** #
 #                                                                              #
 #                                                         :::      ::::::::    #
-#    makefile                                           :+:      :+:    :+:    #
+#    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
 #    By: jperinch <jperinch@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/07/12 12:01:22 by jperinch          #+#    #+#              #
-#    Updated: 2023/07/31 09:03:25 by jperinch         ###   ########.fr        #
+#    Updated: 2024/01/11 09:53:52 by jperinch         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,15 +16,15 @@ NAME = megaphone
 SRC = main.cpp
 OBJ	= $(SRC:.cpp=.o)
 
-CFLAGS = -g3 -Wall -Wextra -Werror -std=c++98
-CC = g++
+CXXFLAGS = -g3 -Wall -Wextra -Werror -std=c++98
+CXX = g++
 
 
 all:  $(NAME)
 
 
 $(NAME): $(OBJ)
-	$(CC) $(CFLAGS) $(OBJ) -o $(NAME)
+	$(CXX) $(CXXFLAGS) $(OBJ) -o $(NAME)
 
 clean:
 	rm -rf *.o 
