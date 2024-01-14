@@ -17,14 +17,36 @@ class Bureaucrat
 	/*orth form*/
 
     	Bureaucrat (std::string name, int grade);
-		getName();
-		getGrade();
-		Bureaucrat& Bureaucrat::operator++()
-		Bureaucrat& Bureaucrat::operator--()
+		Bureaucrat& operator++();
+		Bureaucrat& operator--();
+
+		class GradeTooHighException: public std::exception
+		{
+			public:
+			GradeTooHighException() noexcept = default;
+			~GradeTooHighException() = default
+			virtual const char what() const noexcept
+			{
+				return "Grade is too high( greater then 150)"
+			}
+		}
+		class GradeTooLowException: public std::exception
+		{
+			public:
+			GradeTooLowException() noexcept = default;
+			~GradeTooLowException() = default
+			virtual const char what() const noexcept
+			{
+				return "Grade is too low( lesser then 1)"		
+			}
+		}
+		std::string getName() const;
+		int getGrade() const;
 
     
 	private:
-		const std::string name;
+		std::string name;
+		// const std::string name;
 		int grade;
 };
 std::ostream& operator<<(std::ostream& os, const Bureaucrat& f);

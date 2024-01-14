@@ -13,7 +13,7 @@
 
 NAME = Fixed
 
-SRC = Animal.cpp Dog.cpp  Cat.cpp  notAnimal.cpp notCat.cpp main.cpp
+SRC = Bureaucrat.cpp  
 OBJ	= $(SRC:.cpp=.o)
 
 CXXFLAGS = -Wall -Wextra -Werror -std=c++98
