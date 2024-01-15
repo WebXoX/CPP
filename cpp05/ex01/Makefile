@@ -6,14 +6,14 @@
 #    By: jperinch <jperinch@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/07/12 12:01:22 by jperinch          #+#    #+#              #
-#    Updated: 2024/01/15 09:29:53 by jperinch         ###   ########.fr        #
+#    Updated: 2024/01/15 13:08:50 by jperinch         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 
 NAME = Fixed
 
-SRC =  main.cpp Bureaucrat.cpp 
+SRC =  main.cpp Form.cpp  Bureaucrat.cpp 
 OBJ	= $(SRC:.cpp=.o)
 
 CXXFLAGS = -Wall -Wextra -Werror -std=c++98

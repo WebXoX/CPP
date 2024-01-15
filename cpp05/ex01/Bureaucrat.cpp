@@ -87,17 +87,24 @@ void Bureaucrat::gradedowngrade()
 	else
 		this->grade++;
 }
+void 		Bureaucrat::signForm( const Form &form) const
+{
+	if ( form.getSign() == true)
+		std::cout << form.getName() << " signed "<< form.getName() << std::endl;
+	else
+		std::cout <<  this->name << " couldn’t sign "<< form.getName() << " as they failed meet the passing grade" << std::endl;
+}
+
 std::ostream& operator<<(std::ostream& os, const Bureaucrat& f)
 {
 	try
 	{
-		os<< f.getName() << " , bureaucrat grade "<< f.getGrade()<<". " << std::endl;
+		os<< f.getName() << " , bureaucrat grade "<< f.getGrade() << std::endl;
 	}
 	catch(const std::exception& e)
 	{
 		std::cerr << e.what() << '\n';
 		return os;
 	}
-	
 	return os;
 }
