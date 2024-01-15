@@ -92,14 +92,14 @@ void 		Bureaucrat::signForm( const Form &form) const
 	if ( form.getSign() == true)
 		std::cout << form.getName() << " signed "<< form.getName() << std::endl;
 	else
-		std::cout << form.getName() << " couldn’t sign "<< form.getName()<< "reason" << std::endl;
+		std::cout <<  this->name << " couldn’t sign "<< form.getName() << " as they failed meet the passing grade" << std::endl;
 }
 
 std::ostream& operator<<(std::ostream& os, const Bureaucrat& f)
 {
 	try
 	{
-		os<< f.getName() << " , Form grade "<< f.getGrade()<<". " << std::endl;
+		os<< f.getName() << " , bureaucrat grade "<< f.getGrade() << std::endl;
 	}
 	catch(const std::exception& e)
 	{

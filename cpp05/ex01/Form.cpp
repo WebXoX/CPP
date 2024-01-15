@@ -1,5 +1,5 @@
 #include "Form.hpp"
-
+/* orth form / constructor*/
 Form::Form (): name("default") , gradeSign(50), gradeExc(60)
 {
 	std::cout << "Form default constructor" << std::endl;
@@ -21,15 +21,18 @@ Form::~Form ()
 	std::cout << "Form distructor called" << std::endl;
 }
 
-// void Form::setGrade (int grade)
-// {
-// 	if (grade < 1)
-// 		throw (Form::GradeTooHighException());
-// 	if (grade > 150)
-// 		throw (Form::GradeTooLowException());
-// 	this->grade = grade;
-// }
+Form& Form::operator=(const Form& rhs)
+{
+    if (this != &rhs)
+    {
+        std::cout << "Form copy assignment operator = " << std::endl;
+		*this = rhs;
+    }
+    return *this;
+}
+/* orth form */
 
+/* getters */
 int Form::getGradeSign () const
 {
 	if ( this->gradeSign < 1 )
@@ -57,16 +60,9 @@ std::string Form::getName () const
 {
 	return(this->name);
 }
+/* getters */
+/* Exceptions */
 
-Form& Form::operator=(const Form& rhs)
-{
-    if (this != &rhs)
-    {
-        std::cout << "Form copy assignment operator = " << std::endl;
-		*this = rhs;
-    }
-    return *this;
-}
 const char* Form::GradeTooHighException::what() const _NOEXCEPT
 {
 	return "Grade is too high( LESSER then 1)";
@@ -76,6 +72,9 @@ const char* Form::GradeTooLowException::what() const _NOEXCEPT
 {
 	return "Grade is too low( MORE then 150)";	
 }
+/* Exceptions */
+
+/* extra */
 void Form::beSigned( const Bureaucrat& a)
 {
 	if (a.getGrade() <= this->gradeSign)
@@ -83,6 +82,9 @@ void Form::beSigned( const Bureaucrat& a)
 	else 
 		this->sign = false;
 }
+/* extra */
+
+
 std::ostream& operator<<(std::ostream& os, const Form& f)
 {
 	try
@@ -94,6 +96,5 @@ std::ostream& operator<<(std::ostream& os, const Form& f)
 		std::cerr << e.what() << '\n';
 		return os;
 	}
-	
 	return os;
 }

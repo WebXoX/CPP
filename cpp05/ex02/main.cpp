@@ -6,52 +6,17 @@
 int main()
 {
 	Bureaucrat rob = Bureaucrat("rob",1);
-	Bureaucrat bob = Bureaucrat("bob",-1);
-	Bureaucrat nob = Bureaucrat("nob",155);
-	Bureaucrat nobs = Bureaucrat("nobs",150);
-
-	std::cout << bob;
-	std::cout << nob;
+	Bureaucrat nobs = Bureaucrat("nobs",151);
+	Form 		grader = Form("eco",50,60);
+	std::cout << rob;
+	std::cout << nobs;
 
 	try
 	{
-		std::cout << rob;
-		rob.gradeupgrade();
-		std::cout << rob;	
-	}
-	catch(const std::exception& e)
-	{
-		std::cerr << e.what() << '\n';
-	}
-	try
-	{
-		std::cout << bob;	
-		bob.gradeupgrade();
-		std::cout << bob;	
-	}
-	catch(const std::exception& e)
-	{
-		std::cerr << e.what() << '\n';
-	}
-	try 
-	{
-		std::cout << nob;
-		nob.gradeupgrade();
-		std::cout << nob;	
-	}
-	catch(const std::exception& e)
-	{
-		std::cerr << e.what() << '\n';
-	}
-	try
-	{
-		std::cout << nobs;
-		nobs.gradeupgrade();
-		std::cout << nobs;
-		nobs.gradedowngrade();
-		std::cout << nobs;
-		nobs.gradedowngrade();
-		std::cout << nobs;
+		std::cout << grader;
+		grader.beSigned(rob);
+		grader.beSigned(nobs);
+		nobs.signForm(grader);
 	}
 	catch(const std::exception& e)
 	{

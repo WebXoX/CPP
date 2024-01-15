@@ -19,10 +19,11 @@ class Form
     	Form ();
     	Form (const Form &a);
     	~Form ();
+    	Form (std::string name, int gradetosign , int gradetoexc);
 		Form& operator=(const Form &a);
 	/*orth form*/
 
-    	Form (std::string name, int gradetosign , int gradetoexc);
+	/*exception*/
 
 		class GradeTooHighException: public std::exception
 		{
@@ -34,12 +35,29 @@ class Form
 			public:
 			virtual const char* what() const _NOEXCEPT;
 		};
+		class pass: public std::exception
+		{
+			public:
+			virtual const char* what() const _NOEXCEPT;
+		};
+		class fail: public std::exception
+		{
+			public:
+			virtual const char* what() const _NOEXCEPT;
+		};
+	/*exception*/
+
+	/*getters and setters*/
+
 		void 		setSign (bool sign);
 		std::string getName() const;
 		int 		getGradeSign() const;
 		int 		getGradeExc() const;
 		bool 		getSign() const;
+	/*getters and setters*/
+	/*extra*/
 		void 		beSigned(const Bureaucrat& a);
+	/*extra*/
 
     
 	private:
