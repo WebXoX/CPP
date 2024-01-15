@@ -60,11 +60,11 @@ class PresidentialPardonForm:public AForm
 	/*extra*/
 
     
-	private:
-		const std::string name;
-		bool sign;
-		const int gradeSign;
-		const int gradeExc;
+	// private:
+	// 	const std::string name;
+	// 	bool sign;
+	// 	const int gradeSign;
+	// 	const int gradeExc;
 };
 std::ostream& operator<<(std::ostream& os, const PresidentialPardonForm& f);
 #endif

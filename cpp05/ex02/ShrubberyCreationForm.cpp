@@ -1,12 +1,12 @@
 #include "ShrubberyCreationForm.hpp"
 /* orth ShrubberyCreationForm / constructor*/
-ShrubberyCreationForm::ShrubberyCreationForm (): name("default") , gradeSign(50), gradeExc(60)
+ShrubberyCreationForm::ShrubberyCreationForm (): AForm("ShrubberyCreationForm" , 145, 137)
 {
 	std::cout << "ShrubberyCreationForm default constructor" << std::endl;
 
 }
 
-ShrubberyCreationForm::ShrubberyCreationForm (std::string name, int gradetosign , int gradetoexc): name(name) , gradeSign(gradetosign), gradeExc(gradetoexc)
+ShrubberyCreationForm::ShrubberyCreationForm (std::string target):AForm("ShrubberyCreationForm" , 145, 137), target(target)
 {
 	std::cout << "ShrubberyCreationForm constructor called" << std::endl;
 }

@@ -17,7 +17,7 @@ class AForm
 	public:
 	/*orth form*/
     	AForm ();
-    	AForm (const Form &a);
+    	AForm (const AForm &a);
     	virtual ~AForm () = 0;
     	AForm (std::string name, int gradetosign , int gradetoexc);
 		AForm& operator=(const AForm &a);

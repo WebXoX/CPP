@@ -19,7 +19,7 @@ class ShrubberyCreationForm:public AForm
     	ShrubberyCreationForm ();
     	ShrubberyCreationForm (const ShrubberyCreationForm &a);
     	~ShrubberyCreationForm ();
-    	ShrubberyCreationForm (std::string name, int gradetosign , int gradetoexc);
+    	ShrubberyCreationForm (std::string target);
 		ShrubberyCreationForm& operator=(const ShrubberyCreationForm &a);
 	/*orth ShrubberyCreationForm*/
 
@@ -72,10 +72,7 @@ class ShrubberyCreationForm:public AForm
 */
     
 	private:
-		const std::string name;
-		bool sign;
-		const int gradeSign;
-		const int gradeExc;
+		const std::string target;
 };
 std::ostream& operator<<(std::ostream& os, const ShrubberyCreationForm& f);
 #endif
