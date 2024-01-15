@@ -4,8 +4,6 @@
 #include <iostream>
 #include <string>
 #include <stdlib.h>
-#include <iomanip>
-#include <limits>
 class Bureaucrat 
 {
 	public:
@@ -17,36 +15,26 @@ class Bureaucrat
 	/*orth form*/
 
     	Bureaucrat (std::string name, int grade);
-		Bureaucrat& operator++();
-		Bureaucrat& operator--();
+		void gradeupgrade();
+		void gradedowngrade();
 
 		class GradeTooHighException: public std::exception
 		{
 			public:
-			GradeTooHighException() noexcept = default;
-			~GradeTooHighException() = default
-			virtual const char what() const noexcept
-			{
-				return "Grade is too high( greater then 150)"
-			}
-		}
+			virtual const char* what() const _NOEXCEPT;
+		};
 		class GradeTooLowException: public std::exception
 		{
 			public:
-			GradeTooLowException() noexcept = default;
-			~GradeTooLowException() = default
-			virtual const char what() const noexcept
-			{
-				return "Grade is too low( lesser then 1)"		
-			}
-		}
+			virtual const char* what() const _NOEXCEPT;
+		};
+		void 		setGrade (int grade);
 		std::string getName() const;
-		int getGrade() const;
+		int 		getGrade() const;
 
     
 	private:
-		std::string name;
-		// const std::string name;
+		const std::string name;
 		int grade;
 };
 std::ostream& operator<<(std::ostream& os, const Bureaucrat& f);
