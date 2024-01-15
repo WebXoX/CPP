@@ -63,12 +63,12 @@ std::string Form::getName () const
 /* getters */
 /* Exceptions */
 
-const char* Form::GradeTooHighException::what() const _NOEXCEPT
+const char* Form::GradeTooHighException::what() const throw()
 {
 	return "Grade is too high( LESSER then 1)";
 }
 
-const char* Form::GradeTooLowException::what() const _NOEXCEPT
+const char* Form::GradeTooLowException::what() const throw()
 {
 	return "Grade is too low( MORE then 150)";	
 }

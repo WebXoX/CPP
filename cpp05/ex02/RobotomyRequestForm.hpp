@@ -1,6 +1,6 @@
 #pragma once
-#ifndef __FORM_H__
-#define __FORM_H__
+#ifndef __RobotomyRequestForm_H__
+#define __RobotomyRequestForm_H__
 #include <iostream>
 #include <string>
 #include <stdlib.h>
@@ -12,38 +12,38 @@ class Bureaucrat;
 /> Besigned needs to take bureaucrat object
 /> Compare tosigned and exc grade variables
 */
-class Form 
+class RobotomyRequestForm:public AForm
 {
 	public:
-	/*orth form*/
-    	Form ();
-    	Form (const Form &a);
-    	~Form ();
-    	Form (std::string name, int gradetosign , int gradetoexc);
-		Form& operator=(const Form &a);
-	/*orth form*/
+	/*orth RobotomyRequestForm*/
+    	RobotomyRequestForm ();
+    	RobotomyRequestForm (const RobotomyRequestForm &a);
+    	~RobotomyRequestForm ();
+    	RobotomyRequestForm (std::string name, int gradetosign , int gradetoexc);
+		RobotomyRequestForm& operator=(const RobotomyRequestForm &a);
+	/*orth RobotomyRequestForm*/
 
 	/*exception*/
 
 		class GradeTooHighException: public std::exception
 		{
 			public:
-			virtual const char* what() const _NOEXCEPT;
+			virtual const char* what() const throw();
 		};
 		class GradeTooLowException: public std::exception
 		{
 			public:
-			virtual const char* what() const _NOEXCEPT;
+			virtual const char* what() const throw();
 		};
 		class pass: public std::exception
 		{
 			public:
-			virtual const char* what() const _NOEXCEPT;
+			virtual const char* what() const throw();
 		};
 		class fail: public std::exception
 		{
 			public:
-			virtual const char* what() const _NOEXCEPT;
+			virtual const char* what() const throw();
 		};
 	/*exception*/
 
@@ -66,5 +66,5 @@ class Form
 		const int gradeSign;
 		const int gradeExc;
 };
-std::ostream& operator<<(std::ostream& os, const Form& f);
+std::ostream& operator<<(std::ostream& os, const RobotomyRequestForm& f);
 #endif

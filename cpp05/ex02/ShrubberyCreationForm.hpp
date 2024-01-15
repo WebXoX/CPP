@@ -1,6 +1,6 @@
 #pragma once
-#ifndef __FORM_H__
-#define __FORM_H__
+#ifndef __ShrubberyCreationForm_H__
+#define __ShrubberyCreationForm_H__
 #include <iostream>
 #include <string>
 #include <stdlib.h>
@@ -12,16 +12,16 @@ class Bureaucrat;
 /> Besigned needs to take bureaucrat object
 /> Compare tosigned and exc grade variables
 */
-class Form 
+class ShrubberyCreationForm:public AForm
 {
 	public:
-	/*orth form*/
-    	Form ();
-    	Form (const Form &a);
-    	~Form ();
-    	Form (std::string name, int gradetosign , int gradetoexc);
-		Form& operator=(const Form &a);
-	/*orth form*/
+	/*orth ShrubberyCreationForm*/
+    	ShrubberyCreationForm ();
+    	ShrubberyCreationForm (const ShrubberyCreationForm &a);
+    	~ShrubberyCreationForm ();
+    	ShrubberyCreationForm (std::string name, int gradetosign , int gradetoexc);
+		ShrubberyCreationForm& operator=(const ShrubberyCreationForm &a);
+	/*orth ShrubberyCreationForm*/
 
 	/*exception*/
 
@@ -58,7 +58,18 @@ class Form
 	/*extra*/
 		void 		beSigned(const Bureaucrat& a);
 	/*extra*/
+/*
+        *
+       /|\
+      / | \
+     / /|\ \
+    / / | \ \
+   / / / \ \ \
+  /_/ /___\ \_\
+   |__|   |__|
+       |||
 
+*/
     
 	private:
 		const std::string name;
@@ -66,5 +77,5 @@ class Form
 		const int gradeSign;
 		const int gradeExc;
 };
-std::ostream& operator<<(std::ostream& os, const Form& f);
+std::ostream& operator<<(std::ostream& os, const ShrubberyCreationForm& f);
 #endif

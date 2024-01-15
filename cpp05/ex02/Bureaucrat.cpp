@@ -63,12 +63,12 @@ Bureaucrat& Bureaucrat::operator=(const Bureaucrat& rhs)
     }
     return *this;
 }
-const char* Bureaucrat::GradeTooHighException::what() const _NOEXCEPT
+const char* Bureaucrat::GradeTooHighException::what() const throw()
 {
 	return "Grade is too high( LESSER then 1)";
 }
 
-const char* Bureaucrat::GradeTooLowException::what() const _NOEXCEPT
+const char* Bureaucrat::GradeTooLowException::what() const throw()
 {
 	return "Grade is too low( MORE then 150)";	
 }

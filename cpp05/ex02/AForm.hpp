@@ -12,16 +12,16 @@ class Bureaucrat;
 /> Besigned needs to take bureaucrat object
 /> Compare tosigned and exc grade variables
 */
-class Form 
+class AForm 
 {
 	public:
 	/*orth form*/
-    	Form ();
-    	Form (const Form &a);
-    	~Form ();
-    	Form (std::string name, int gradetosign , int gradetoexc);
-		Form& operator=(const Form &a);
-	/*orth form*/
+    	AForm ();
+    	AForm (const Form &a);
+    	virtual ~AForm () = 0;
+    	AForm (std::string name, int gradetosign , int gradetoexc);
+		AForm& operator=(const AForm &a);
+	/*orth Aform*/
 
 	/*exception*/
 
@@ -56,15 +56,15 @@ class Form
 		bool 		getSign() const;
 	/*getters and setters*/
 	/*extra*/
-		void 		beSigned(const Bureaucrat& a);
+		virtual void 		beSigned(const Bureaucrat& a) = 0;
 	/*extra*/
 
     
 	private:
-		const std::string name;
-		bool sign;
-		const int gradeSign;
-		const int gradeExc;
+		const std::string 	name;
+		bool				sign;
+		const int			gradeSign;
+		const int			gradeExc;
 };
-std::ostream& operator<<(std::ostream& os, const Form& f);
+std::ostream& operator<<(std::ostream& os, const AForm& f);
 #endif
