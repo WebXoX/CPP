@@ -1,17 +1,17 @@
 #include "PresidentialPardonForm.hpp"
 /* orth PresidentialPardonForm / constructor*/
-PresidentialPardonForm::PresidentialPardonForm (): name("default") , gradeSign(50), gradeExc(60)
+PresidentialPardonForm::PresidentialPardonForm (): AForm("PresidentialPardonForm" , 25, 5)
 {
 	std::cout << "PresidentialPardonForm default constructor" << std::endl;
 
 }
 
-PresidentialPardonForm::PresidentialPardonForm (std::string name, int gradetosign , int gradetoexc): name(name) , gradeSign(gradetosign), gradeExc(gradetoexc)
+PresidentialPardonForm::PresidentialPardonForm (std::string target): AForm("PresidentialPardonForm" , 25, 5), target(target)
 {
 	std::cout << "PresidentialPardonForm constructor called" << std::endl;
 }
 
-PresidentialPardonForm::PresidentialPardonForm (const PresidentialPardonForm &a): name(a.getName()) , gradeSign(a.getGradeSign()), gradeExc(a.getGradeExc())
+PresidentialPardonForm::PresidentialPardonForm (const PresidentialPardonForm &a): AForm("PresidentialPardonForm" , 25, 5)
 {
         std::cout << "PresidentialPardonForm copy constructor " << std::endl;
 }
@@ -81,6 +81,18 @@ void PresidentialPardonForm::beSigned( const Bureaucrat& a)
 		this->sign = true;
 	else 
 		this->sign = false;
+}
+
+
+void  PresidentialPardonForm::execute(Bureaucrat const & executor) const
+{
+	if (executor.getGrade() > 150)
+		throw PresidentialPardonForm::GradeTooLowException();
+	if (executor.getGrade() < 1)
+		throw PresidentialPardonForm::GradeTooHighException();
+	if (this->sign == false)
+		throw PresidentialPardonForm::fail();
+		std::cout << this->getTarget() <<" has been pardoned by Zaphod Beeblebrox" << std::endl;
 }
 /* extra */
 

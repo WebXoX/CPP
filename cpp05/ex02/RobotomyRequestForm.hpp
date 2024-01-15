@@ -51,6 +51,7 @@ class RobotomyRequestForm:public AForm
 
 		void 		setSign (bool sign);
 		std::string getName() const;
+		std::string getTarget() const;
 		int 		getGradeSign() const;
 		int 		getGradeExc() const;
 		bool 		getSign() const;
@@ -60,8 +61,8 @@ class RobotomyRequestForm:public AForm
 	/*extra*/
 
     
-	// private:
-	// 	const std::string name;
+	private:
+		const std::string target;
 	// 	bool sign;
 	// 	const int gradeSign;
 	// 	const int gradeExc;

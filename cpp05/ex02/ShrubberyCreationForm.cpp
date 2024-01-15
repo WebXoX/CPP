@@ -11,7 +11,7 @@ ShrubberyCreationForm::ShrubberyCreationForm (std::string target):AForm("Shrubbe
 	std::cout << "ShrubberyCreationForm constructor called" << std::endl;
 }
 
-ShrubberyCreationForm::ShrubberyCreationForm (const ShrubberyCreationForm &a): name(a.getName()) , gradeSign(a.getGradeSign()), gradeExc(a.getGradeExc())
+ShrubberyCreationForm::ShrubberyCreationForm (const ShrubberyCreationForm &a):AForm("ShrubberyCreationForm" , 145, 137), target(target)
 {
         std::cout << "ShrubberyCreationForm copy constructor " << std::endl;
 }
@@ -72,6 +72,10 @@ const char* ShrubberyCreationForm::GradeTooLowException::what() const throw()
 {
 	return "Grade is too low( MORE then 150)";	
 }
+const char* ShrubberyCreationForm::fail::what() const throw()
+{
+	return "Failed to meet requirements";	
+}
 /* Exceptions */
 
 /* extra */
@@ -82,6 +86,28 @@ void ShrubberyCreationForm::beSigned( const Bureaucrat& a)
 	else 
 		this->sign = false;
 }
+
+void  ShrubberyCreationForm::execute(Bureaucrat const & executor) const
+{
+	if (executor.getGrade() > 150)
+		throw ShrubberyCreationForm::GradeTooLowException();
+	if (executor.getGrade() < 1)
+		throw ShrubberyCreationForm::GradeTooHighException();
+	if (this->sign == false)
+		throw ShrubberyCreationForm::fail();
+	std::ofstream outfile(this->target + "_shrubbery");
+	outfile << "	    *       " << std::endl;
+	outfile << "       /|\      " << std::endl;
+	outfile << "      / | \     " << std::endl;
+	outfile << "     / /|\ \    " << std::endl;
+	outfile << "    / / | \ \   " << std::endl;
+	outfile << "   / / / \ \ \  " << std::endl;
+	outfile << "  /_/ /___\ \_\ " << std::endl;
+	outfile << "   |__|   |__|  " << std::endl;
+	outfile << "       |||      " << std::endl;
+	outfile.close();
+}
+
 /* extra */
 
 

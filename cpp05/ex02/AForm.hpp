@@ -35,11 +35,6 @@ class AForm
 			public:
 			virtual const char* what() const throw();
 		};
-		class pass: public std::exception
-		{
-			public:
-			virtual const char* what() const throw();
-		};
 		class fail: public std::exception
 		{
 			public:
@@ -56,7 +51,8 @@ class AForm
 		bool 		getSign() const;
 	/*getters and setters*/
 	/*extra*/
-		virtual void 		beSigned(const Bureaucrat& a) = 0;
+		 void 		beSigned(const Bureaucrat& a);
+		virtual void execute(Bureaucrat const & executor) const = 0;
 	/*extra*/
 
     
