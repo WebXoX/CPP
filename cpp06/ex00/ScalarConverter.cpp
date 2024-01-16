@@ -35,6 +35,11 @@ int ScalarConverter::charPos(std::string str)
 	{
 		return (1);
 	}
+	int i = static_cast<int>(strtol(str.c_str(), NULL, 10));
+	if (isascii(i) && std::isprint(i))
+	{
+		return (1);
+	}
 	throw(std::exception());
 	return (0);
 }
@@ -46,7 +51,7 @@ void ScalarConverter::convert(std::string str)
 	{
 		if(charPos(str) == 1)
 		{
-			std::cout << "char: " << str[0] << std::endl;
+			std::cout << "char: '" << static_cast<char>(strtol(str.c_str(), NULL, 10)) << "'" << std::endl;
 		}
 	}
 	catch(const std::exception& e)
@@ -100,5 +105,5 @@ void ScalarConverter::convert(std::string str)
 int main ()
 {
 	ScalarConverter b;
-	b.convert("42.00");
+	b.convert("a");
 }
