@@ -4,24 +4,28 @@
 #include <iostream>
 #include <string>
 #include <stdlib.h>
-#include "Bureaucrat.hpp"
 
-class Bureaucrat;
 /*
 />inherit from bureaucrat
 /> Besigned needs to take bureaucrat object
 /> Compare tosigned and exc grade variables
 */
-class AForm 
+class ScalarConverter 
 {
+
+    /*VARIABLES*/
+	// private:
+	
+    /*VARIABLES*/
+
 	public:
 	/*orth form*/
-    	AForm ();
-    	AForm (const AForm &a);
-    	virtual ~AForm () = 0;
-    	AForm (std::string name, int gradetosign , int gradetoexc);
-		AForm& operator=(const AForm &a);
-	/*orth Aform*/
+    	ScalarConverter ();
+    	ScalarConverter (const ScalarConverter &a);
+    	~ScalarConverter ();
+    	ScalarConverter (std::string name, int gradetosign , int gradetoexc);
+		ScalarConverter& operator=(const ScalarConverter &a);
+	/*orth ScalarConverter*/
 
 	/*exception*/
 
@@ -43,24 +47,13 @@ class AForm
 	/*exception*/
 
 	/*getters and setters*/
-
-		void 		setSign (bool sign);
-		std::string getName() const;
-		int 		getGradeSign() const;
-		int 		getGradeExc() const;
-		bool 		getSign() const;
 	/*getters and setters*/
 	/*extra*/
-		void 		beSigned(const Bureaucrat& a);
-		virtual void execute(Bureaucrat const & executor) const = 0;
+	static void convert(std::string str);
+	static int charPos(std::string str);
+
 	/*extra*/
 
-    
-	private:
-		const std::string 	name;
-		bool				sign;
-		const int			gradeSign;
-		const int			gradeExc;
 };
-std::ostream& operator<<(std::ostream& os, const AForm& f);
+// std::ostream& operator<<(std::ostream& os, const ScalarConverter& f);
 #endif
