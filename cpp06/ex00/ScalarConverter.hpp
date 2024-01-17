@@ -4,6 +4,7 @@
 #include <iostream>
 #include <string>
 #include <stdlib.h>
+#include <iomanip>
 
 /*
 />inherit from bureaucrat
@@ -51,6 +52,9 @@ class ScalarConverter
 	/*extra*/
 	static void convert(std::string str);
 	static int charPos(std::string str);
+	static int isFNumb(std::string str);
+	static bool wordException(std::string str);
+	static bool 	isAscii(char c);
 
 	/*extra*/
 
