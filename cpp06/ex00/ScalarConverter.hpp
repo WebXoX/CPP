@@ -1,11 +1,11 @@
 #pragma once
-#ifndef __FORM_H__
-#define __FORM_H__
+#ifndef __SCALARCONVERTER_H__
+#define __SCALARCONVERTER_H__
 #include <iostream>
 #include <string>
 #include <stdlib.h>
 #include <iomanip>
-
+# include <_ctype.h>
 /*
 />inherit from bureaucrat
 /> Besigned needs to take bureaucrat object
@@ -16,45 +16,28 @@ class ScalarConverter
 
     /*VARIABLES*/
 	// private:
-	
     /*VARIABLES*/
 
-	public:
+	private:
 	/*orth form*/
     	ScalarConverter ();
     	ScalarConverter (const ScalarConverter &a);
     	~ScalarConverter ();
-    	ScalarConverter (std::string name, int gradetosign , int gradetoexc);
 		ScalarConverter& operator=(const ScalarConverter &a);
 	/*orth ScalarConverter*/
 
 	/*exception*/
-
-		class GradeTooHighException: public std::exception
-		{
-			public:
-			virtual const char* what() const throw();
-		};
-		class GradeTooLowException: public std::exception
-		{
-			public:
-			virtual const char* what() const throw();
-		};
-		class fail: public std::exception
-		{
-			public:
-			virtual const char* what() const throw();
-		};
 	/*exception*/
 
 	/*getters and setters*/
 	/*getters and setters*/
+	public:
 	/*extra*/
-	static void convert(std::string str);
-	static int charPos(std::string str);
-	static int isFNumb(std::string str);
-	static bool wordException(std::string str);
-	static bool 	isAscii(char c);
+		static void convert(std::string str);
+		static int charPos(std::string str);
+		static int isFNumb(std::string str);
+		static bool wordException(std::string str);
+		static bool 	isAscii(char c);
 
 	/*extra*/
 

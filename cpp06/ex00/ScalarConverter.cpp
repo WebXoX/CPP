@@ -28,6 +28,9 @@ ScalarConverter& ScalarConverter::operator=(const ScalarConverter& rhs)
     }
     return *this;
 }
+/* orth ScalarConverter */
+
+/* extra */
 bool ScalarConverter::isAscii(char c) {
     return static_cast<unsigned char>(c) <= 127;
 }
@@ -69,24 +72,25 @@ int ScalarConverter::isFNumb(std::string str)
 		return (0);
 	return (1);
 }
-/* orth ScalarConverter */
 int ScalarConverter::charPos(std::string str)
 {
 	if (str.length() == 1 && isAscii(str[0]) == true)
-		return (1);
+		return (2);
 	if (isFNumb(str) == 1 && isAscii(static_cast<char>(strtol(str.c_str(), NULL, 10))) == true)
 		return (1);
 	throw(std::exception());
 	return (0);
 }
-/* getters */
 void ScalarConverter::convert(std::string str)
 {
-	char * error = NULL;
 	try
 	{
-		if(charPos(str) == 1)
+		if(charPos(str) == 2 && std::isprint(str[0]) == 1)
+			std::cout << "char: '" << str.c_str() << "'" << std::endl;
+		else if(charPos(str) == 1 && std::isprint(static_cast<char>(strtol(str.c_str(), NULL, 10))) == 1)
 			std::cout << "char: '" << static_cast<char>(strtol(str.c_str(), NULL, 10)) << "'" << std::endl;
+		else if(charPos(str) > 0 && std::isprint(static_cast<char>(strtol(str.c_str(), NULL, 10))) == 0)
+			std::cout << "char: Non displayable" << std::endl;
 	}
 	catch(const std::exception& e)
 	{
@@ -94,7 +98,9 @@ void ScalarConverter::convert(std::string str)
 	}
 	try
 	{
-		if(isFNumb(str) == 1 || wordException(str) == true)
+		if(charPos(str) == 2 && std::isprint(str[0]) == 1)
+			std::cout << "int: '" << static_cast<int>((str[0]))<< "'" << std::endl;
+		else if(isFNumb(str) == 1 )
 			std::cout << "int: " << static_cast<int>(strtol(str.c_str(), NULL, 10))  << std::endl;
 		else
 			throw(std::exception());
@@ -106,12 +112,14 @@ void ScalarConverter::convert(std::string str)
 	try
 	{
 		float i;
-		if(isFNumb(str) == 1 || wordException(str) == true)
-			i = static_cast<float>(std::strtold(str.c_str(),&error));
+		if(charPos(str) == 2 && std::isprint(str[0]) == 1)
+			i =  static_cast<float>((str[0]));
+		else if(isFNumb(str) == 1 || wordException(str) == true)
+			i = static_cast<float>(std::strtof(str.c_str(),NULL));
 		else
 			throw(std::exception());
-		  std::cout << std::fixed << std::setprecision(3);
-		std::cout << "float: " << i  << std::endl;
+		std::cout << std::fixed << std::setprecision(2);
+		std::cout << "float: " << i  << 'f' <<std::endl;
 	}
 	catch(const std::exception& e)
 	{
@@ -119,13 +127,14 @@ void ScalarConverter::convert(std::string str)
 	}
 	try
 	{
-		 errno = 0;
-		 double i ;
-		if(isFNumb(str) == 1 || wordException(str) == true)
-			i = static_cast<double>(std::strtold(str.c_str(),&error));
+		double i = 0.0;
+		if(charPos(str) == 2 && std::isprint(str[0]) == 1)
+			i = static_cast<double>((str[0]));
+		else if(isFNumb(str) == 1 || wordException(str) == true)
+			i = static_cast<double>(std::strtold(str.c_str(),NULL));
 		else
 			throw(std::exception());
-		std::cout << std::setprecision(3);
+		std::cout << std::setprecision(4);
 		std::cout << "double: " << i << "" << std::endl;
 	}
 	catch(const std::exception& e)
@@ -133,16 +142,9 @@ void ScalarConverter::convert(std::string str)
 		std::cerr << "double: impossible" << std::endl;
 	}
 }
+/* extra */
+/* getters */
 /* getters */
 /* Exceptions */
-
 /* Exceptions */
 
-/* extra */
-
-/* extra */
-int main ()
-{
-	ScalarConverter b;
-	b.convert("1000000.121");
-}
