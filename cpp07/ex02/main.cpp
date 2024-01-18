@@ -4,9 +4,7 @@
 #include "C.hpp"
 Base * generate(void)
 {
-	std::srand(static_cast<unsigned>(std::time(nullptr)));
 	int i = rand() % 3;
-	std::cout << i << std::endl;
 	if (i == 0)
 		return (new A());
 	else if (i == 1)
@@ -36,7 +34,7 @@ void identify(Base& p)
 int main()
 {
 	Base *b = generate();
-	Base &c = *generate();
+	Base &c = generate();
 	identify(b);
 	identify(c);
 	return (0);

@@ -6,14 +6,14 @@
 #    By: jperinch <jperinch@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/07/12 12:01:22 by jperinch          #+#    #+#              #
-#    Updated: 2024/01/18 13:58:07 by jperinch         ###   ########.fr        #
+#    Updated: 2024/01/18 11:42:42 by jperinch         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 
 NAME = Fixed
 
-SRC =  main.cpp A.cpp B.cpp C.cpp Base.cpp
+SRC =  main.cpp		Serializer.cpp  Data.cpp
 OBJ	= $(SRC:.cpp=.o)
 
 CXXFLAGS = -Wall -Wextra -Werror -std=c++98
