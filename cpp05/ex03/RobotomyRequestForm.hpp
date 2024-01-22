@@ -1,6 +1,6 @@
 #pragma once
-#ifndef __RobotomyRequestForm_H__
-#define __RobotomyRequestForm_H__
+#ifndef __RobotomyRequestForm_HPP__
+#define __RobotomyRequestForm_HPP__
 #include <iostream>
 #include <string>
 #include <stdlib.h>

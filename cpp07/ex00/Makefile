@@ -6,14 +6,14 @@
 #    By: jperinch <jperinch@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/07/12 12:01:22 by jperinch          #+#    #+#              #
-#    Updated: 2024/01/16 10:52:07 by jperinch         ###   ########.fr        #
+#    Updated: 2024/01/22 10:15:48 by jperinch         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 
-NAME = convert
+NAME = what
 
-SRC = ScalarConverter.cpp  main.cpp
+SRC =   main.cpp
 OBJ	= $(SRC:.cpp=.o)
 
 CXXFLAGS = -Wall -Wextra -Werror -std=c++98

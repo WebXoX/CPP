@@ -1,6 +1,6 @@
 #pragma once
-#ifndef __INTERN_H__
-#define __INTERN_H__
+#ifndef __INTERN_HPP__
+#define __INTERN_HPP__
 #include <iostream>
 #include <string>
 #include <stdlib.h>

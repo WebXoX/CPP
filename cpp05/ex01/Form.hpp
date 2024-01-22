@@ -1,6 +1,6 @@
 #pragma once
-#ifndef __FORM_H__
-#define __FORM_H__
+#ifndef __FORM_HPP__
+#define __FORM_HPP__
 #include <iostream>
 #include <string>
 #include <stdlib.h>

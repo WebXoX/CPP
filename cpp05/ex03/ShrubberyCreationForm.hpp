@@ -1,6 +1,6 @@
 #pragma once
-#ifndef __ShrubberyCreationForm_H__
-#define __ShrubberyCreationForm_H__
+#ifndef __ShrubberyCreationForm_HPP__
+#define __ShrubberyCreationForm_HPP__
 #include <iostream>
 #include <string>
 #include <fstream>

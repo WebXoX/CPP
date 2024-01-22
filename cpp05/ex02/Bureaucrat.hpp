@@ -1,6 +1,6 @@
 #pragma once
-#ifndef __BUREAUCRAT_H__
-#define __BUREAUCRAT_H__
+#ifndef __BUREAUCRAT_HPP__
+#define __BUREAUCRAT_HPP__
 #include <iostream>
 #include <string>
 #include <stdlib.h>

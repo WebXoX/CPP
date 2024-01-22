@@ -1,6 +1,6 @@
 #pragma once
-#ifndef __PRESIDENTIALPARDONFORM_H__
-#define __PRESIDENTIAL_PARDONFORM_H__
+#ifndef __PRESIDENTIALPARDONFORM_HPP__
+#define __PRESIDENTIAL_PARDONFORM_HPP__
 #include <iostream>
 #include <string>
 #include <stdlib.h>
