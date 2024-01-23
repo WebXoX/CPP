@@ -12,14 +12,12 @@
 	/*getters and setters*/
 	/*extra*/
 template <typename T>
-	T easyfind(T a, int n)
+	int easyfind(T &a, int n)
 	{
-		for (typename T::iterator it = a.begin(); it != a.end(); it++)
-			if (*it == n)
-				return *it;
+		typename T::iterator it = std::find(a.begin(), a.end(), n);
+		if(it != a.end())
+			return *it;
 		throw "Not found";
 	}
-
-
 /*extra*/
 #endif
