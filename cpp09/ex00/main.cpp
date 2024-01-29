@@ -1,23 +1,28 @@
 #include <iostream>
 #include <algorithm>
-#include <vector>
-#include "easyfind.hpp"
-int main()
-{
-    std::vector<int> vec ;
-    vec.push_back(1);
-    vec.push_back(2);
-    vec.push_back(3);
-    vec.push_back(4);
-    vec.push_back(5);
-    try
-    {
-        std::cout << "Value : " << easyfind(vec,13) << std::endl;
-    }
-    catch (const char *msg)
-    {
-        std::cerr << msg << std::endl;
-    }
+#include <map>
+#include "BitcoinExchange.hpp"
 
+int validefile(char *str)
+{
+    std::string s = str;
+    if (s.find(".txt") != std::string::npos)
+        return 1;
+    return 0;
+}
+int main(int argc, char **argv)
+{
+    if (argc == 2)
+    {
+        BitcoinExchange b;
+        if (validefile(argv[1]) == 0)
+        {
+            std::cout << "Error: file not found" << std::endl;
+            return 0;
+        }
+        b.makeForm(str2, str3);
+    }
+    else
+        std::cout << "Error: could not open file." << std::endl;
     return 0;
 }

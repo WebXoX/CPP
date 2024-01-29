@@ -6,12 +6,12 @@
 #    By: jperinch <jperinch@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/07/12 12:01:22 by jperinch          #+#    #+#              #
-#    Updated: 2024/01/23 14:08:41 by jperinch         ###   ########.fr        #
+#    Updated: 2024/01/29 12:28:09 by jperinch         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 
-NAME = easyfind
+NAME = btc
 
 SRC =   main.cpp
 OBJ	= $(SRC:.cpp=.o)

@@ -14,31 +14,32 @@ int main()
 	std::cout << std::endl;
 	std::cout << " // creation of form"<< std::endl;
 	Form 		grader = Form("eco",50,60);
-	std::cout << std::endl;
-	std::cout << std::endl;
-	std::cout << " // bureaucrat values"<< std::endl;
+	std::cout << grader.getSign();
+	// std::cout << std::endl;
+	// std::cout << std::endl;
+	// std::cout << " // bureaucrat values"<< std::endl;
 	
-	std::cout << rob;
-	std::cout << nobs;
+	// std::cout << rob;
+	// std::cout << nobs;
 
-	try
-	{
-		std::cout << grader;
-		std::cout << std::endl;
-		std::cout << std::endl;
-		std::cout << " // signing"<< std::endl;
-		// grader.beSigned(rob);
+	// try
+	// {
+	// 	std::cout << grader;
+	// 	std::cout << std::endl;
+	// 	std::cout << std::endl;
+	// 	std::cout << " // signing"<< std::endl;
+	// 	// grader.beSigned(rob);
 		
-		grader.beSigned(robs);
-		robs.signForm(grader);
-		std::cout << std::endl;
-		std::cout << std::endl;
-		std::cout << " // did not pass"<< std::endl;
-		grader.beSigned(nobs);
-		nobs.signForm(grader);
-	}
-	catch(const std::exception& e)
-	{
-		std::cerr << e.what() << '\n';
-	}
+	// 	grader.beSigned(robs);
+	// 	robs.signForm(grader);
+	// 	std::cout << std::endl;
+	// 	std::cout << std::endl;
+	// 	std::cout << " // did not pass"<< std::endl;
+	// 	grader.beSigned(nobs);
+	// 	nobs.signForm(grader);
+	// }
+	// catch(const std::exception& e)
+	// {
+	// 	std::cerr << e.what() << '\n';
+	// }
 }

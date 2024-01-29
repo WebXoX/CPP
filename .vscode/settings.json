@@ -74,7 +74,9 @@
 		"random": "cpp",
 		"numbers": "cpp",
 		"__functional_03": "cpp",
-		"scavtrap.hpp": "c"
+		"scavtrap.hpp": "c",
+		"__tree": "cpp",
+		"map": "cpp"
 	},
 	"C_Cpp.errorSquiggles": "disabled"
 }

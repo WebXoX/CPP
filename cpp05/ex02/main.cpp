@@ -25,35 +25,37 @@ int main()
 
 	try
 	{
-		grader.beSigned(rob);
-		grader1.beSigned(rob);
+		// grader.beSigned(rob);
+		// grader1.beSigned(rob);
 		grader2.beSigned(rob);
-		grader.execute(rob);
-		std::cout << std::endl;
-		rob.executeForm(grader);
-		std::cout << std::endl;
-		rob.executeForm(grader1);
-		std::cout << std::endl;
+		// grader.execute(rob);
+		// std::cout << std::endl;
+		// rob.executeForm(grader);
+		// std::cout << std::endl;
+		// rob.executeForm(grader1);
+		// std::cout << std::endl;
+		// rob.executeForm(grader2);
+		// std::cout << "\n //error" << std::endl;
+		// grader.beSigned(error);
+		// grader1.beSigned(error);
+		grader2.beSigned(rob);
 		rob.executeForm(grader2);
-		std::cout << "\n //error" << std::endl;
-		grader.beSigned(error);
-		grader1.beSigned(error);
-		grader2.beSigned(error);
+
 	}
 	catch(const std::exception& e)
 	{
 		std::cerr << e.what() << '\n';
 	}
 
-	try
-	{
-		std::cout << "\n //error" << std::endl;
-		std::cout << std::endl;
-		error.executeForm(grader);
-		std::cout << std::endl;
-	}
-	catch(const std::exception& e)
-	{
-		std::cerr << e.what() << '\n';
-	}
+	// try
+	// {
+	// 	std::cout << "\n //error" << std::endl;
+	// 	std::cout << std::endl;
+	// 	error.executeForm(grader);
+	// 	std::cout << std::endl;
+	// }
+	// catch(const std::exception& e)
+	// {
+	// 	std::cerr << e.what() << '\n';
+	// }
 }

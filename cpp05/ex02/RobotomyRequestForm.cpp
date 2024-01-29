@@ -1,4 +1,6 @@
 #include "RobotomyRequestForm.hpp"
+#include <time.h>
+#include <stdlib.h>
 /* orth form / constructor*/
 RobotomyRequestForm::RobotomyRequestForm (): AForm("RobotomyRequestForm" , 72, 45)
 {
@@ -48,7 +50,8 @@ void  RobotomyRequestForm::execute(Bureaucrat const & executor) const
 		throw RobotomyRequestForm::GradeTooHighException();
 	if (this->getSign() == false)
 		throw RobotomyRequestForm::fail();
-	if ((int)rand()/1 == 1)
+	std::srand(static_cast<unsigned>(std::time(nullptr)));
+	if ((int)rand()%2 == 1)
 		std::cout << this->target <<" has been robotomized successfully" << std::endl;
 	else
 		std::cout << this->target << " robotomy failed." << std::endl;
