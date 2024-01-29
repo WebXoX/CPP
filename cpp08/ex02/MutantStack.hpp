@@ -5,96 +5,53 @@
 #include <vector>
 #include <algorithm>
 #include <stack>
-template <typename T>
-class MutantStack: public std::stack<T>
+#include <deque>
+
+template < typename T, class Container = std::deque<T> >
+class MutantStack : public std::stack<T, Container>
 {
 
     /*VARIABLES*/
 	public:
-    	typename std::stack<T>::container_type::iterator stacks;
-    	typename std::stack<T>::container_type::const_iterator cstacks;
-
+    	typedef typename Container::iterator iterator;
     /*VARIABLES*/
 
 	/*orth form*/
+		MutantStack () : std::stack<T, Container>()
+		{
+			std::cout << "MutantStack default constructor" << std::endl;
+		}
+		MutantStack (const MutantStack &a) : std::stack<T, Container>(a)
+		{
+			std::cout << "MutantStack copy constructor " << std::endl;
+		}
+		virtual ~MutantStack ()
+		{
+			std::cout << "MutantStack distructor called" << std::endl;
+		}
+		MutantStack& operator=(const MutantStack& rhs)
+		{
+			if (this != &rhs)
+			{
+				std::stack<T, Container>::operator=(rhs);
+			}
+			return *this;
+		}
 	/*orth MutantStack*/
 	/*exception*/
 	/*exception*/
 	/*getters and setters*/
 	/*getters and setters*/
 	/*extra*/
-		std::stack<T> begin()
+	public:
+		iterator begin()
 		{
-			return(this->stacks[0]);
+			return(this->c.begin());
 		}
-		std::stack<T> end()
+		iterator end()
 		{
-			return(this->cstacks + this->cstacks.size());
+			return(this->c.end());
 		}
-		std::stack<T>& operator++()
-		{
-			this->cstacks++;
-			return this->cstacks;
-		}
-		
-		std::stack<T>& operator++(const std::stack<T>& rhs)
-		{
-			std::stack<T> temp;
-			temp = this->cstacks;
-			this->cstacks++;
-			return(temp);
-		}
-			std::stack<T>& operator--()
-		{
-			this->cstacks--;
-			return this->cstacks;
-		}
-		
-		std::stack<T>& operator--(const std::stack<T>& rhs)
-		{
-			std::stack<T> temp;
-			temp = this->cstacks;
-			this->cstacks--;
-			return(temp);
-		}
-		
-
-		std::stack<T> begin()
-		{
-			return(this->cstacks[0]);
-		}
-		std::stack<T> end()
-		{
-			return(this->cstacks + this->cstacks.size());
-		}
-
-		std::stack<T>& operator++()
-		{
-			this->cstacks++;
-			return this->cstacks;
-		}
-		
-		std::stack<T>& operator++(const std::stack<T>& rhs)
-		{
-			std::stack<T> temp;
-			temp = this->cstacks;
-			this->cstacks++;
-			return(temp);
-		}
-			std::stack<T>& operator--()
-		{
-			this->cstacks--;
-			return this->cstacks;
-		}
-		
-		std::stack<T>& operator--(const std::stack<T>& rhs)
-		{
-			std::stack<T> temp;
-			temp = this->cstacks;
-			this->cstacks--;
-			return(temp);
-		}
-		
 	/*extra*/
 
 };
