@@ -49,7 +49,7 @@ void  PresidentialPardonForm::execute(Bureaucrat const & executor) const
 	{
 		throw PresidentialPardonForm::fail();
 	}
-		std::cout << this->target <<" has been pardoned by Zaphod Beeblebrox" << std::endl;
+	std::cout << this->target <<" has been pardoned by Zaphod Beeblebrox" << std::endl;
 }
 /* extra */
 
