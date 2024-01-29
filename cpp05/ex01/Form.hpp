@@ -35,16 +35,6 @@ class Form
 			public:
 			virtual const char* what() const throw();
 		};
-		class pass: public std::exception
-		{
-			public:
-			virtual const char* what() const throw();
-		};
-		class fail: public std::exception
-		{
-			public:
-			virtual const char* what() const throw();
-		};
 	/*exception*/
 
 	/*getters and setters*/

@@ -10,10 +10,10 @@ RobotomyRequestForm::RobotomyRequestForm (std::string target): AForm("RobotomyRe
 	std::cout << "RobotomyRequestForm constructor called" << std::endl;
 }
 
-RobotomyRequestForm::RobotomyRequestForm (const RobotomyRequestForm &a)
+RobotomyRequestForm::RobotomyRequestForm (const RobotomyRequestForm &a):AForm(a.getName() , a.getGradeSign(), a.getGradeExc()), target(a.target)
 {
 	std::cout << "RobotomyRequestForm copy constructor " << std::endl;
-	*this = a;
+	// *this = a;
 }
 
 RobotomyRequestForm::~RobotomyRequestForm ()

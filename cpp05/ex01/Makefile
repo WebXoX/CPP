@@ -6,12 +6,12 @@
 #    By: jperinch <jperinch@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/07/12 12:01:22 by jperinch          #+#    #+#              #
-#    Updated: 2024/01/15 13:08:50 by jperinch         ###   ########.fr        #
+#    Updated: 2024/01/29 10:48:51 by jperinch         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 
-NAME = Fixed
+NAME = Bureaucrat
 
 SRC =  main.cpp Form.cpp  Bureaucrat.cpp 
 OBJ	= $(SRC:.cpp=.o)

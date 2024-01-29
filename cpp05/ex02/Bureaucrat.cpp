@@ -90,7 +90,7 @@ void Bureaucrat::gradedowngrade()
 void 		Bureaucrat::signForm( const AForm &form) const
 {
 	if ( form.getSign() == true)
-		std::cout << form.getName() << " signed "<< form.getName() << std::endl;
+		std::cout << this->name << " signed "<< form.getName() << std::endl;
 	else
 		std::cout <<  this->name << " couldn’t sign "<< form.getName() << " as they failed meet the passing grade" << std::endl;
 }

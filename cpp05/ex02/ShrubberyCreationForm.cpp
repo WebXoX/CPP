@@ -11,9 +11,10 @@ ShrubberyCreationForm::ShrubberyCreationForm (std::string target):AForm("Shrubbe
 	std::cout << "ShrubberyCreationForm constructor called" << std::endl;
 }
 
-ShrubberyCreationForm::ShrubberyCreationForm (const ShrubberyCreationForm &a)
+
+ShrubberyCreationForm::ShrubberyCreationForm (const ShrubberyCreationForm &a):AForm(a.getName() , a.getGradeSign(), a.getGradeExc()), target(a.target)
 {
-	*this = a;
+	// *this = a;
         std::cout << "ShrubberyCreationForm copy constructor " << std::endl;
 }
 
@@ -49,7 +50,9 @@ void  ShrubberyCreationForm::execute(Bureaucrat const & executor) const
 	if (this->getSign() == false)
 		throw ShrubberyCreationForm::fail();
 
-	std::ofstream outfile(this->target + "_shrubbery");
+	std::ofstream outfile;
+	std::string name = this->target+"_shrubbery";
+	outfile.open(name.c_str());
 
 	outfile << "	    *       " << std::endl;
 	outfile << "       /|\\      " << std::endl;

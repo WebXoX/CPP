@@ -31,6 +31,15 @@ Bureaucrat::~Bureaucrat ()
 	std::cout << "Bureaucrat distructor called" << std::endl;
 }
 
+Bureaucrat& Bureaucrat::operator=(const Bureaucrat& rhs)
+{
+    if (this != &rhs)
+    {
+        std::cout << "Bureaucrat copy assignment operator = " << std::endl;
+		*this = rhs;
+    }
+    return *this;
+}
 void Bureaucrat::setGrade (int grade)
 {
 	if (grade < 1)
@@ -54,15 +63,6 @@ std::string Bureaucrat::getName () const
 	return(this->name);
 }
 
-Bureaucrat& Bureaucrat::operator=(const Bureaucrat& rhs)
-{
-    if (this != &rhs)
-    {
-        std::cout << "Bureaucrat copy assignment operator = " << std::endl;
-		*this = rhs;
-    }
-    return *this;
-}
 const char* Bureaucrat::GradeTooHighException::what() const throw()
 {
 	return "Grade is too high( LESSER then 1)";
@@ -90,9 +90,9 @@ void Bureaucrat::gradedowngrade()
 void 		Bureaucrat::signForm( const AForm &form) const
 {
 	if ( form.getSign() == true)
-		std::cout << form.getName() << " signed "<< form.getName() << std::endl;
+		std::cout << this->name << " signed "<< form.getName() << std::endl;
 	else
-		std::cout <<  this->name << " couldn’t sign "<< form.getName() << " as they failed meet the passing grade" << std::endl;
+		std::cout << this->name << " couldn’t sign "<< form.getName() << " as they failed meet the passing grade" << std::endl;
 }
 void		Bureaucrat::executeForm(AForm const & form)
 {

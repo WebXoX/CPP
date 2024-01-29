@@ -2,18 +2,18 @@
 /* orth form / constructor*/
 RobotomyRequestForm::RobotomyRequestForm (): AForm("RobotomyRequestForm" , 72, 45)
 {
-	std::cout << "Form default constructor" << std::endl;
+	std::cout << "RobotomyRequestForm default constructor" << std::endl;
 }
 
 RobotomyRequestForm::RobotomyRequestForm (std::string target): AForm("RobotomyRequestForm" , 72, 45), target(target)
 {
-	std::cout << "Form constructor called" << std::endl;
+	std::cout << "RobotomyRequestForm constructor called" << std::endl;
 }
 
-RobotomyRequestForm::RobotomyRequestForm (const RobotomyRequestForm &a)
+RobotomyRequestForm::RobotomyRequestForm (const RobotomyRequestForm &a):AForm(a.getName() , a.getGradeSign(), a.getGradeExc()), target(a.target)
 {
-	std::cout << "Form copy constructor " << std::endl;
-	*this = a;
+	std::cout << "RobotomyRequestForm copy constructor " << std::endl;
+	// *this = a;
 }
 
 RobotomyRequestForm::~RobotomyRequestForm ()

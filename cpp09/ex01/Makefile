@@ -6,14 +6,14 @@
 #    By: jperinch <jperinch@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/07/12 12:01:22 by jperinch          #+#    #+#              #
-#    Updated: 2024/01/29 10:49:02 by jperinch         ###   ########.fr        #
+#    Updated: 2024/01/23 14:10:30 by jperinch         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 
-NAME = Bureaucrat
+NAME = span
 
-SRC =  main.cpp AForm.cpp  Bureaucrat.cpp          ShrubberyCreationForm.cpp PresidentialPardonForm.cpp  RobotomyRequestForm.cpp 
+SRC =   main.cpp Span.cpp
 OBJ	= $(SRC:.cpp=.o)
 
 CXXFLAGS = -Wall -Wextra -Werror -std=c++98

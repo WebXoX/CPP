@@ -35,27 +35,3 @@ class ShrubberyCreationForm:public AForm
 };
 std::ostream& operator<<(std::ostream& os, const ShrubberyCreationForm& f);
 #endif
-//                       ___
-//                 _,-'\"\"   \"\"\"\"`--.
-//              ,-'          __,,-- \\
-//            ,\'    __,--\"\"\"\"dF      )
-//           /   .-\"Hb_,--\"\"dF      /
-//         ,\'       _Hb ___dF\"-._,-'
-//       ,'      _,-\"\"\"\"   \"\"--..__
-//      (     ,-'                  `.
-//       `._,'     _   _             ;
-//        ,'     ,' `-'Hb-.___..._,-'
-//        \\    ,'\"Hb.-\'HH`-.dHF\"
-//         `--\'   \"Hb  HH  dF\"
-//                 \"Hb HH dF
-//                  \"HbHHdF
-//                   |HHHF
-//                   |HHH|
-//                   |HHH|
-//                   |HHH|
-//                   |HHH|
-//                   dHHHb
-//                 .dFd|bHb.               o
-//       o       .dHFdH|HbTHb.          o /
-// \\  Y  |  \\__,dHHFdHH|HHhoHHb.         Y
-// ##########################################
