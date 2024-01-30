@@ -4,7 +4,7 @@
 #include "C.hpp"
 Base * generate(void)
 {
-	std::srand(static_cast<unsigned>(std::time(nullptr)));
+	std::srand(static_cast<unsigned>(std::time(0)));
 	int i = rand() % 3;
 	std::cout << i << std::endl;
 	if (i == 0)
