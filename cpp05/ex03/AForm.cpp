@@ -1,17 +1,17 @@
 #include "AForm.hpp"
 /* orth AForm / constructor*/
-AForm::AForm (): name("default") , gradeSign(50), gradeExc(60)
+AForm::AForm (): name("default"), sign(false), gradeSign(50), gradeExc(60)
 {
 	std::cout << "AForm default constructor" << std::endl;
 
 }
 
-AForm::AForm (std::string name, int gradetosign , int gradetoexc): name(name) , gradeSign(gradetosign), gradeExc(gradetoexc)
+AForm::AForm (std::string name, int gradetosign , int gradetoexc): name(name), sign(false) , gradeSign(gradetosign), gradeExc(gradetoexc)
 {
 	std::cout << "AForm constructor called" << std::endl;
 }
 
-AForm::AForm (const AForm &a): name(a.getName()) , gradeSign(a.getGradeSign()), gradeExc(a.getGradeExc())
+AForm::AForm (const AForm &a): name(a.getName()), sign(false), gradeSign(a.getGradeSign()), gradeExc(a.getGradeExc())
 {
         std::cout << "AForm copy constructor " << std::endl;
 }
