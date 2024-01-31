@@ -76,7 +76,8 @@
 		"__functional_03": "cpp",
 		"scavtrap.hpp": "c",
 		"__tree": "cpp",
-		"map": "cpp"
+		"map": "cpp",
+		"__memory": "cpp"
 	},
 	"C_Cpp.errorSquiggles": "disabled"
 }
