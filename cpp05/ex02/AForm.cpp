@@ -3,17 +3,23 @@
 AForm::AForm (): name("default"), sign(false), gradeSign(50), gradeExc(60)
 {
 	std::cout << "AForm default constructor" << std::endl;
+	this->getGradeSign();
+	this->getGradeExc();
 
 }
 
 AForm::AForm (std::string name, int gradetosign , int gradetoexc): name(name), sign(false) , gradeSign(gradetosign), gradeExc(gradetoexc)
 {
 	std::cout << "AForm constructor called" << std::endl;
+	this->getGradeSign();
+	this->getGradeExc();
 }
 
 AForm::AForm (const AForm &a): name(a.getName()), sign(false), gradeSign(a.getGradeSign()), gradeExc(a.getGradeExc())
 {
-        std::cout << "AForm copy constructor " << std::endl;
+    std::cout << "AForm copy constructor " << std::endl;
+	this->getGradeSign();
+	this->getGradeExc();
 }
 
 AForm::~AForm ()
@@ -27,6 +33,8 @@ AForm& AForm::operator=(const AForm& rhs)
     {
         std::cout << "AForm copy assignment operator = " << std::endl;
 		*this = rhs;
+		this->getGradeSign();
+		this->getGradeExc();
     }
     return *this;
 }

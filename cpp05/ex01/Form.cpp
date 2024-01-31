@@ -3,17 +3,22 @@
 	Form::Form (): name("default") , gradeSign(50), gradeExc(60)
 	{
 		std::cout << "Form default constructor" << std::endl;
-
+		this->getGradeSign();
+		this->getGradeExc();
 	}
 
 	Form::Form (std::string name, int gradetosign , int gradetoexc): name(name) , gradeSign(gradetosign), gradeExc(gradetoexc)
 	{
 		std::cout << "Form constructor called" << std::endl;
+		this->getGradeSign();
+		this->getGradeExc();	
 	}
 
 	Form::Form (const Form &a): name(a.getName()) , gradeSign(a.getGradeSign()), gradeExc(a.getGradeExc())
 	{
-			std::cout << "Form copy constructor " << std::endl;
+		std::cout << "Form copy constructor " << std::endl;
+		this->getGradeSign();
+		this->getGradeExc();
 	}
 
 	Form::~Form ()
@@ -27,6 +32,8 @@
 		{
 			std::cout << "Form copy assignment operator = " << std::endl;
 			*this = rhs;
+			this->getGradeSign();
+			this->getGradeExc();
 		}
 		return *this;
 	}

@@ -74,6 +74,8 @@ const char* Bureaucrat::GradeTooLowException::what() const throw()
 }
 void Bureaucrat::gradeupgrade()
 {
+	if (this->grade > 150)
+		throw(Bureaucrat::GradeTooLowException());
 	if (this->grade - 1 < 1)
 		throw(Bureaucrat::GradeTooHighException());
 	else
@@ -82,6 +84,8 @@ void Bureaucrat::gradeupgrade()
 
 void Bureaucrat::gradedowngrade()
 {
+	if (this->grade < 1)
+		throw(Bureaucrat::GradeTooHighException());
 	if (this->grade + 1 > 150)
 		throw(Bureaucrat::GradeTooLowException());
 	else
