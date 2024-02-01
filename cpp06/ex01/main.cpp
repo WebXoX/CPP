@@ -8,5 +8,6 @@ int main()
 	std::cout << Serializer::deserialize( Serializer::serialize(data))->age << std::endl;
 	std::cout << Serializer::deserialize( Serializer::serialize(data))->gender << std::endl;
 	std::cout << Serializer::deserialize( Serializer::serialize(data))->nationality << std::endl;
+	delete data;
 	return (0);
 }

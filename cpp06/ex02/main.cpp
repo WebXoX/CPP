@@ -39,5 +39,7 @@ int main()
 	Base &c = *generate();
 	identify(b);
 	identify(c);
+	delete b;
+	delete c;
 	return (0);
 }
