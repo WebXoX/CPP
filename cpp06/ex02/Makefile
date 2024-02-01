@@ -6,12 +6,12 @@
 #    By: jperinch <jperinch@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/07/12 12:01:22 by jperinch          #+#    #+#              #
-#    Updated: 2024/01/18 13:58:07 by jperinch         ###   ########.fr        #
+#    Updated: 2024/02/01 08:31:23 by jperinch         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 
-NAME = Fixed
+NAME = base
 
 SRC =  main.cpp A.cpp B.cpp C.cpp Base.cpp
 OBJ	= $(SRC:.cpp=.o)
