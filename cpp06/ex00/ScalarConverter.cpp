@@ -57,11 +57,13 @@ bool ScalarConverter::wordException(std::string str) {
 }
 int ScalarConverter::isFNumb(std::string str)
 {
-	std::string ints, floats,signs,point;
+	std::string ints, floats,signs,point, fstr;
 	int sign = 0;
 	int decimal= 0;
-	size_t number = str.find_first_not_of("-+0123456789.");
+	int fcount= 0;
+	size_t number = str.find_first_not_of("-+0123456789.f");
 	size_t number2 = str.find_first_of("0123456789");
+	fstr = str;
 	signs = str;
 	ints = str;
 	point = str;
@@ -81,15 +83,26 @@ int ScalarConverter::isFNumb(std::string str)
 			break;
 		point = point.substr(point.find_first_of(".") + 1, point.length());
 	}
-	if (sign > 1 || decimal > 1 )
+	while (fstr.find_first_of('f')!= std::string::npos)
+	{
+		fcount++;
+		if(fstr.find_first_of("f")+1 == fstr.length())
+			break;
+		fstr = fstr.substr(fstr.find_first_of("f") + 1, fstr.length());
+	}
+	if (sign > 1 || decimal > 1 || fcount > 1)
 		return (-1);
-	if( decimal == 0)
+	if( decimal == 0 && fcount == 0)
 		return (0);
-	ints = str.substr(0, str.find_first_of(".") - 1);
+	if (str.find_first_of(".") == std::string::npos)
+		ints = str;
+	else
+		ints = str.substr(0, str.find_first_of(".") - 1);
+		// std::cout << "ints: "  << std::endl;
 	floats = str.substr(str.find_first_of(".") + 1, str.length());
 	if (ints.find_first_not_of("-+0123456789") != std::string::npos)
 		return (-1);
-	if (floats.find_first_not_of("0123456789fF") != std::string::npos)
+	if (floats.find_first_not_of("0123456789f") != std::string::npos)
 		return (-1);
 	return (1);
 }
@@ -109,7 +122,7 @@ int ScalarConverter::isChar(std::string str)
 		std::cout << std::fixed << std::setprecision(2);
 		std::cout << "float: " << static_cast<float>(std::strtof(str.c_str(),NULL))  << 'f' <<std::endl;
 		std::cout << std::fixed << std::setprecision(4);
-		std::cout << "double: " << static_cast<double>(std::strtold(str.c_str(),NULL))  << 'f' <<std::endl;
+		std::cout << "double: " << static_cast<double>(std::strtold(str.c_str(),NULL))  <<std::endl;
 		return (1);
 	}
 	return (0);
@@ -150,7 +163,7 @@ void ScalarConverter::convert(std::string str)
 		if (d > DBL_MAX && d < DBL_MIN)
 			std::cout << "double: overflow"  << std::endl;
 		else
-			std::cout << "double: " << static_cast<double>(std::strtold(str.c_str(),NULL))  << 'f' <<std::endl;
+			std::cout << "double: " << static_cast<double>(std::strtold(str.c_str(),NULL))  <<std::endl;
 		return;
 	}
 	else
