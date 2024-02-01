@@ -34,10 +34,11 @@ class ScalarConverter
 	public:
 	/*extra*/
 		static void convert(std::string str);
-		static int charPos(std::string str);
-		static int isFNumb(std::string str);
+		static int 	isFNumb(std::string str);
 		static bool wordException(std::string str);
-		static bool 	isAscii(char c);
+		static bool isAscii(long c);
+		static bool	isprintable(long c);
+		static int 	isChar(std::string str);
 
 	/*extra*/
 
