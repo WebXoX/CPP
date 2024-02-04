@@ -27,8 +27,6 @@ int validate(std::string date, std::string value)
     std::string year;
     std::string month;
     std::string day;
-    int error = 0;
-    std::cout << year <<  " " << month << " " << day << std::endl;
     if (date.find_first_of("0123456789-") != std::string::npos)
     {
             year = date.substr(0, date.find_first_of("-"));
@@ -40,7 +38,7 @@ int validate(std::string date, std::string value)
             else
             {
                 std::cout << "year not ok" << std::endl;
-                error = 1;
+                // error = 1;
             }
             date = date.substr(date.find_first_of("-") + 1,date.length());
             month = date.substr(0, date.find_first_of("-"));
@@ -52,7 +50,7 @@ int validate(std::string date, std::string value)
             else
             {
                 std::cout << "month not ok" << std::endl;
-                error = 1;
+                // error = 1;
             }
             date = date.substr(date.find_first_of("-") + 1,date.length());
             day = date.substr(0, date.find_first_of("-"));
@@ -64,10 +62,10 @@ int validate(std::string date, std::string value)
             else
             {
                 std::cout << "day not ok" << std::endl;
-                error = 1;
+                // error = 1;
             }
             if(date.find_first_of("-") == std::string::npos)
-                error = 1;
+                // error = 1;
         value = value.substr(value.find_first_of(" ") + 1,value.length());
         double fvalue = 0;
     if (value.find_first_of("0123456789.") != std::string::npos)
@@ -80,7 +78,7 @@ int validate(std::string date, std::string value)
         else
         {
             std::cout << "value not ok" << std::endl;
-            error = 1;
+            // error = 1;
         }
     }
     std::cout << year <<  " " << month << " " << day << " " << fvalue << std::endl;
@@ -96,15 +94,15 @@ int validefile( std::string str)
     if (str2.compare("txt") == 0 && S_ISDIR(fileStat.st_mode) == 0)
         {
             std::ifstream infile;
-            infile.open(str);
+            infile.open(str.c_str());
             if (infile.is_open())
             {
-                int val = 0;
+                // int val = 0;
                 std::getline(infile,line);
                 if(line.find("date | value") != std::string::npos)
                 {
                     std::cout << "file here" << std::endl;
-                    val = 1;
+                    // val = 1;
                 }
                 while (std::getline(infile,line) )
                 {
@@ -121,11 +119,48 @@ int validefile( std::string str)
         }
     return 0;
 }
+int loadData()
+{
+	struct stat fileStat;
+	std::string line;
+    stat(("data.csv"), &fileStat);
+    if (S_ISDIR(fileStat.st_mode) == 0)
+        {
+            std::ifstream infile;
+            infile.open("data.csv");
+            if (infile.is_open())
+            {
+                // int val = 0;
+                std::getline(infile,line);
+                if(line.find("date, keyvalue") == std::string::npos)
+                {
+                    std::cerr << "incorect data base" << std::endl;
+                    return 1;
+                }
+                while (std::getline(infile,line) )
+                {
+                    std::string date = line.substr(0, line.find(","));
+                    std::string value = line.substr(line.find(",") + 1, line.length());
+                    validate(date, value);
+                }
+                
+
+                infile.close();
+                return 1;
+            }
+
+        }
+    return 0;
+}
 int main(int argc, char **argv)
 {
     if (argc == 2)
     {
         // BitcoinExchange b;
+        if (loadData() == 0)
+        {
+             std::cout << "Error: database not found" << std::endl;
+        }
         if (validefile(argv[1]) == 0)
         {
             std::cout << "Error: file not found" << std::endl;

@@ -1,11 +1,11 @@
 #pragma once
-#ifndef __SPAN_HPP__
-#define __SPAN_HPP__
+#ifndef __RPN_HPP__
+#define __RPN_HPP__
 #include <iostream>
 #include <vector>
 #include <algorithm>
 // template <typename T>
-class Span 
+class RPN 
 {
 
     /*VARIABLES*/
@@ -17,12 +17,12 @@ class Span
 
 	public:
 	/*orth form*/
-    	Span ();
-		Span (unsigned int n);
-		Span (const Span &a);
-		~Span ();
-		Span& operator=(const Span& rhs);
-	/*orth Span*/
+    	RPN ();
+		RPN (unsigned int n);
+		RPN (const RPN &a);
+		~RPN ();
+		RPN& operator=(const RPN& rhs);
+	/*orth RPN*/
 	/*exception*/
 	/*exception*/
 	/*getters and setters*/
@@ -30,10 +30,10 @@ class Span
 	/*extra*/
 		void addNumber(int value);
 		void addRange(int start, int end);
-		int shortestSpan ();
-		int longestSpan ();
+		int shortestRPN ();
+		int longestRPN ();
 	/*extra*/
 
 };
-// std::ostream& operator<<(std::ostream& os, const Span& f);
+// std::ostream& operator<<(std::ostream& os, const RPN& f);
 #endif

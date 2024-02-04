@@ -1,0 +1,14 @@
+reverse polish notation 
+
+post fix 3 4 +
+in fix  3 + 4 
+prefix + 3 4
+prefix is polish notation 
+
+post is reerse polish notation
+
+two operands with opperation at the end
+left to right 
+
+3 4 + 2 *
+when you see two operands and you see operation u excute them immediately ~

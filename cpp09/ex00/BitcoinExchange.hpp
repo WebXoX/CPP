@@ -29,7 +29,6 @@ class BitcoinExchange
 	/*getters and setters*/
 	/*getters and setters*/
 	/*extra*/
-	AForm* makeForm(std::string name, std::string target);
 	/*extra*/
 };
 #endif
