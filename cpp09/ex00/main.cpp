@@ -22,11 +22,12 @@ int monthDate(int year, int month)
     return days;
 }
 
-int validate(std::string date, std::string value)
+int validate(std::string date, std::string value,BitcoinExchange b)
 {
     std::string year;
     std::string month;
     std::string day;
+    std::string data_Save = date;
     if (date.find_first_of("0123456789-") != std::string::npos)
     {
             year = date.substr(0, date.find_first_of("-"));
@@ -74,6 +75,7 @@ int validate(std::string date, std::string value)
         if (fvalue >= 0 && fvalue <= 4294967295)
         {
             std::cout << "value ok " << fvalue << std::endl;
+            b.setKeyVal(data_Save,value)
         }
         else
         {
@@ -81,6 +83,7 @@ int validate(std::string date, std::string value)
             // error = 1;
         }
     }
+
     std::cout << year <<  " " << month << " " << day << " " << fvalue << std::endl;
     }
     return 1;
@@ -119,7 +122,7 @@ int validefile( std::string str)
         }
     return 0;
 }
-int loadData()
+int loadData(BitcoinExchange b)
 {
 	struct stat fileStat;
 	std::string line;
@@ -132,7 +135,7 @@ int loadData()
             {
                 // int val = 0;
                 std::getline(infile,line);
-                if(line.find("date, keyvalue") == std::string::npos)
+                if(line.find("date,exchange_rate") == std::string::npos)
                 {
                     std::cerr << "incorect data base" << std::endl;
                     return 1;
@@ -143,8 +146,6 @@ int loadData()
                     std::string value = line.substr(line.find(",") + 1, line.length());
                     validate(date, value);
                 }
-                
-
                 infile.close();
                 return 1;
             }
@@ -156,8 +157,8 @@ int main(int argc, char **argv)
 {
     if (argc == 2)
     {
-        // BitcoinExchange b;
-        if (loadData() == 0)
+        BitcoinExchange b;
+        if (loadData(b) == 0)
         {
              std::cout << "Error: database not found" << std::endl;
         }

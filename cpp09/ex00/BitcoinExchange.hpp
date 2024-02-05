@@ -29,6 +29,7 @@ class BitcoinExchange
 	/*getters and setters*/
 	/*getters and setters*/
 	/*extra*/
+	void setKeyVal(std::string key, std::string val);
 	/*extra*/
 };
 #endif
