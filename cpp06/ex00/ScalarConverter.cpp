@@ -113,16 +113,24 @@ int ScalarConverter::isChar(std::string str)
 	{
 		if (isAscii((long)(str[0])) == false)
 			std::cout << "char: impossible" << std::endl;
-		else if (isprintable((long)((str[0]))) == false)
-			std::cout << "char: Non displayable" << std::endl;
+		else if (isprintable((long)((str[0]))) == false || str.find_first_of("1234567890") != std::string::npos)
+		{
+			std::cout << "char: Non displayable" << std::endl;	
+			std::cout << "int: "  << static_cast<int>(std::strtol(str.c_str(),NULL,10))  <<  std::endl;
+			std::cout << std::fixed << std::setprecision(2);
+			std::cout << "float: " << static_cast<float>(std::strtof(str.c_str(),NULL))  << 'f' <<std::endl;
+			std::cout << std::fixed << std::setprecision(4);
+			std::cout << "double: " << static_cast<double>(std::strtold(str.c_str(),NULL))  <<std::endl;
+		}
 		else
+		{
 			std::cout << "char: '" << str[0] << "'" << std::endl;
-		
-		std::cout << "int: "  << static_cast<int>(std::strtol(str.c_str(),NULL,10))  <<  std::endl;
-		std::cout << std::fixed << std::setprecision(2);
-		std::cout << "float: " << static_cast<float>(std::strtof(str.c_str(),NULL))  << 'f' <<std::endl;
-		std::cout << std::fixed << std::setprecision(4);
-		std::cout << "double: " << static_cast<double>(std::strtold(str.c_str(),NULL))  <<std::endl;
+			std::cout << "int: "  << static_cast<int>(str[0])  <<  std::endl;
+			std::cout << std::fixed << std::setprecision(2);
+			std::cout << "float: " << static_cast<float>(str[0]) << 'f' <<std::endl;
+			std::cout << std::fixed << std::setprecision(4);
+			std::cout << "double: " << static_cast<double>(str[0]) <<std::endl;
+		}
 		return (1);
 	}
 	return (0);
