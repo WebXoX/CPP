@@ -4,6 +4,7 @@
 #include <iostream>
 #include <string>
 #include <stdlib.h>
+#include <algorithm>
 #include <map>
 
 /*
@@ -27,9 +28,10 @@ class BitcoinExchange
 	
 	/*exception*/
 	/*getters and setters*/
+	void setKeyVal(std::string key, int val);
 	/*getters and setters*/
 	/*extra*/
-	void setKeyVal(std::string key, std::string val);
+	void exchange(std::string date_save, float fvalue);
 	/*extra*/
 };
 #endif

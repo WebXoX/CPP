@@ -28,10 +28,26 @@ BitcoinExchange& BitcoinExchange::operator=(const BitcoinExchange& rhs)
 }
 /* orth BitcoinExchange */
 /*extra*/
+void BitcoinExchange::exchange(std::string date_save, float fvalue)
+{
+	    for (std::map<std::string, int>::iterator i = this->KeyVal.begin(); i != this->KeyVal.end(); ++i)
+        {
+            if(i->first == date_save)
+            {
+                std::cout << i->first << "=> " << i->second << " = " << i->second * fvalue << std::endl;
+                return ;
+            }
+            if (i->first > date_save)
+            {
+                std::cout << (--i)->first << ":"  "=> " << (--i)->second << " = " << (--i)->second * fvalue << std::endl;
+                return ;
+            }
+        }
+}
 /*extra*/
 /*getter and setters*/
 
-BitcoinExchange::setKeyVal(std::string key, std::string val)
+void BitcoinExchange::setKeyVal(std::string key, int val)
 {
 	this->KeyVal[key] = val;
 }
