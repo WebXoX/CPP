@@ -1,45 +1,41 @@
-#include "Span.hpp"
+#include "RPN.hpp"
 
 /*orth form*/
-    	Span::Span ()
+    	RPN::RPN ()
 		{
-			std::cout << "Span default constructor" << std::endl;
-			this->n = 0;
-			this->count = 0;
+			// std::cout << "RPN default constructor" << std::endl;
 		}
-		Span::Span (unsigned int n)
-		{
-			std::cout << "Span default constructor" << std::endl;
-			this->n = n;
-			if(n == 0)
-				std::cout << "vector will be empty always" << std::endl;
-			this->count = 0;
-		}
+		// RPN::RPN (unsigned int n)
+		// {
+		// 	std::cout << "RPN default constructor" << std::endl;
+		// 	this->n = n;
+		// 	if(n == 0)
+		// 		std::cout << "vector will be empty always" << std::endl;
+		// 	this->count = 0;
+		// }
 
 
-		Span::Span (const Span &a)
+		RPN::RPN (const RPN &a)
 		{
-			std::cout << "Span copy constructor " << std::endl;
-			this->n = a.n;
-			this->count = a.count;
+			// std::cout << "RPN copy constructor " << std::endl;
 			// this->content = a.content.copy();
 			for (std::vector<int>::const_iterator i = a.content.begin(); i != a.content.end(); ++i)
 				this->content.push_back(*i);
 		}
 
-		Span::~Span ()
+		RPN::~RPN ()
 		{
-			std::cout << "Span distructor called" << std::endl;
+			// std::cout << "RPN distructor called" << std::endl;
 			if (this->content.empty() == true)
 				this->content.clear();
 		}
 
-		Span& Span::operator=(const Span& rhs)
+		RPN& RPN::operator=(const RPN& rhs)
 		{
 			if (this != &rhs)
 			{
-				this->n = rhs.n;
-				this->count = rhs.count;
+				// this->n = rhs.n;
+				// this->count = rhs.count;
 				// this->content = rhs.content.copy();
 			for (std::vector<int>::const_iterator i = rhs.content.begin(); i != rhs.content.end(); ++i)
 				this->content.push_back(*i);
@@ -47,78 +43,79 @@
 			return *this;
 		}
 		
-	/*orth Span*/
+	/*orth RPN*/
 	/*exception*/
 	/*exception*/
 	/*getters and setters*/
 	/*getters and setters*/
 	/*extra*/
-		void Span::addNumber(int value)
+	void RPN::print()
+	{
+		std::cout  << " ----------------printf-------------"  << std::endl;
+		for (std::vector<int>::iterator i = content.begin(); i !=content.end(); ++i)
+				std::cout  << " iterate :> " << *i << std::endl;
+		std::cout  << " ----------------ends-------------"  << std::endl;
+
+	}
+		void RPN::calculate (char str)
 		{
-			if (this->count != this->n )
-			{
-				this->content.push_back(value);
-				std::cout << "added " << value << std::endl;
-				this->count++;
-			}
-			else if (this->n == 0)
-			{
-				throw "Span is empty";
-			}
-			else if (this->count == this->n)
-			{
-				throw "Span is full";
-			}
+			int size = content.size();
+			int numb1 = content[size - 2];
+			int numb2 = content[size - 1];
+			content.pop_back();
+			content.pop_back();
+			if( str == '+')
+				content.push_back(numb1 + numb2);
+			else if( str == '-')
+				content.push_back(numb1 - numb2);			
+			else if( str == '*')
+				content.push_back(numb1 * numb2);
+			else if( str == '/')
+				content.push_back(numb1 / numb2);
+
+		}
+		void RPN::sort(std::string value)
+		{
+			if(value.find_first_not_of(" 0123456789+-/*") != std::string::npos)
+				throw ("Error");
 			
-		}
-		void Span::addRange(int start, int end)
-		{
-			for (;start <= end;)
+			for (size_t i = 0; i < value.length(); )
 			{
-				if (this->count != this->n )
+				// this->print();
+				if(value[i] == ' ')
+					i++;
+				else if (isdigit(value[i]) )
 				{
-					this->content.push_back(start);
-					std::cout << "added " << start << std::endl;
-					this->count++;
-					start++;
+					size_t j = i+1;
+					while (j < value.length() && isdigit(value[j]))
+						j++;
+				
+					if(value[j] != ' ' || j-i > 1)
+						throw (" Error");
+					int numb = static_cast<int>(strtol(value.substr(i,j).c_str(),NULL,10));
+					content.push_back(numb);
+					i++;
 				}
-				else if (this->n == 0)
+				else if (content.size() >= 2)
 				{
-					throw "Span is empty";
-				}
-				else if (this->count == this->n)
-				{
-					if (start != end)
+					if(value[i] == '+' || value[i] == '-' || value[i] == '*' || value[i] == '/' )
 					{
-						throw "Range is too big";
+						if (i == value.length() - 1 || value[i+1] == ' ')
+							calculate(value[i]);
+						else
+							throw ("Error");
+						i++;	
 					}
-					
-					throw "Span is full";
+					else
+							throw ("Error");
 				}
+				else if(value[i] == '+' || value[i] == '-' || value[i] == '*' || value[i] == '/' )
+					throw ("Error");
 			}
-		}
-		int Span::shortestSpan () 
-		{
-			if ((this->n <= 0|| this->count< 2 ) )
-			{
-				throw "Span needs two or more elements";
-			}
+			if(content.size() == 1)
+				std::cout << "" << content[0] << std::endl;
 			else
-			{
-				std::sort(this->content.begin(), this->content.end());
-				return this->content[1] - this->content[0];
-			}
+				throw ("Error");
 		}
-		int Span::longestSpan () 
-		{
-			if ((this->n <= 0|| this->count< 2 ) )
-			{
-				throw "Span needs two or more elements";
-			}
-			else
-			{
-				std::sort(this->content.begin(), this->content.end());
-				return this->content[this->content.size() - 1] - this->content[this->content.size() - 2];
-			}	
-		}
+		
 	/*extra*/

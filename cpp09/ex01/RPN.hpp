@@ -4,14 +4,11 @@
 #include <iostream>
 #include <vector>
 #include <algorithm>
-// template <typename T>
 class RPN 
 {
 
     /*VARIABLES*/
 	private:
-		unsigned int n;
-		unsigned int count;
 		std::vector<int> content;
     /*VARIABLES*/
 
@@ -28,10 +25,9 @@ class RPN
 	/*getters and setters*/
 	/*getters and setters*/
 	/*extra*/
-		void addNumber(int value);
-		void addRange(int start, int end);
-		int shortestRPN ();
-		int longestRPN ();
+		void sort(std::string value);
+		void print();
+		void calculate (char str);
 	/*extra*/
 
 };

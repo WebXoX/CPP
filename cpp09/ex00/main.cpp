@@ -7,6 +7,7 @@
 #include <sys/types.h>
 #include <sys/stat.h>
 #include "BitcoinExchange.hpp"
+
 int isF_N_Numb(std::string str)
 {
 	std::string ints, floats,point, fstr;
@@ -71,35 +72,29 @@ int validateUser(std::string date, std::string value,BitcoinExchange *b)
     std::string data_Save = date;
     if (date.find_first_of("0123456789-") != std::string::npos)
     {
-            year = date.substr(0, date.find_first_of("-"));
-            if(isF_N_Numb(year) == -1 || isF_N_Numb(year) == 1)
-                return 0;
-            int dyear = static_cast<int>(strtol(year.c_str(), NULL, 10)) ;
-            if (dyear < 2009 || dyear > 2024)
-            {
-                std::cout << "[Error: bad input => " << dyear << " ]"<< std::endl;
-                return 0;
-            }
-            date = date.substr(date.find_first_of("-") + 1,date.length());
-            month = date.substr(0, date.find_first_of("-"));
-            if(isF_N_Numb(month) == -1 || isF_N_Numb(month) == 1)
-            {
-                return 0;
-            }
-            int dmonth = static_cast<int>(strtol(month.c_str(), NULL, 10)) ;
-            if (dmonth < 1 || dmonth > 12)
-            {
-                std::cout << "[Error: bad input => " << dmonth << " ]"<< std::endl;
-                return 0;
-            }
-            date = date.substr(date.find_first_of("-") + 1,date.length());
-            day = date.substr(0, date.find_first_of("-"));
-            int dday = static_cast<int>(strtol(day.c_str(), NULL, 10)) ;
-            if (dday < 1 || dday > monthDate(dyear, dmonth) || isF_N_Numb(date) == -1 || isF_N_Numb(date) == 1)
-            {
-                std::cout << "[Error: bad input => " << dday << " ]"<< std::endl;
-                return 0;
-            }
+        year = date.substr(0, date.find_first_of("-"));
+        int dyear = static_cast<int>(strtol(year.c_str(), NULL, 10)) ;
+        if (isF_N_Numb(year) == -1 || isF_N_Numb(year) == 1 || dyear < 2009 || dyear > 2024)
+        {
+            std::cout << "[Error: bad input => " << dyear << " ]"<< std::endl;
+            return 0;
+        }
+        date = date.substr(date.find_first_of("-") + 1,date.length());
+        month = date.substr(0, date.find_first_of("-"));
+        int dmonth = static_cast<int>(strtol(month.c_str(), NULL, 10)) ;
+        if (isF_N_Numb(month) == -1 || isF_N_Numb(month) == 1 || dmonth < 1 || dmonth > 12)
+        {
+            std::cout << "[Error: bad input => " << dmonth << " ]"<< std::endl;
+            return 0;
+        }
+        date = date.substr(date.find_first_of("-") + 1,date.length());
+        day = date.substr(0, date.find_first_of("-"));
+        int dday = static_cast<int>(strtol(day.c_str(), NULL, 10)) ;
+        if (dday < 1 || dday > monthDate(dyear, dmonth) || isF_N_Numb(date) == -1 || isF_N_Numb(date) == 1)
+        {
+            std::cout << "[Error: bad input => " << dday << " ]"<< std::endl;
+            return 0;
+        }
         value = value.substr(value.find_first_of(" ") + 1,value.length());
         double fvalue = 0;
         if (isF_N_Numb(value) == -1 )
@@ -127,32 +122,24 @@ int validate(std::string date, std::string value,BitcoinExchange *b)
     if (date.find_first_of("0123456789-") != std::string::npos)
     {
             year = date.substr(0, date.find_first_of("-"));
-            if(isF_N_Numb(year) == -1 || isF_N_Numb(year) == 1)
-                return 0;
             int dyear = static_cast<int>(strtol(year.c_str(), NULL, 10)) ;
-            if (dyear < 2009 || dyear > 2024)
+            if ( isF_N_Numb(year) == -1 || isF_N_Numb(year) == 1 || dyear < 2009 || dyear > 2024)
             {
                 std::cout << "year not ok" << std::endl;
                 return 0;
             }
             date = date.substr(date.find_first_of("-") + 1,date.length());
             month = date.substr(0, date.find_first_of("-"));
-            if(isF_N_Numb(month) == -1 || isF_N_Numb(month) == 1)
-            {
-                return 0;
-            }
             int dmonth = static_cast<int>(strtol(month.c_str(), NULL, 10)) ;
-            if (dmonth < 1 || dmonth > 12)
+            if (isF_N_Numb(month) == -1 || isF_N_Numb(month) == 1 || dmonth < 1 || dmonth > 12)
             {
                 std::cout << "month not ok" << std::endl;
                 return 0;
             }
             date = date.substr(date.find_first_of("-") + 1,date.length());
             day = date.substr(0, date.find_first_of("-"));
-            if(isF_N_Numb(date) == -1 || isF_N_Numb(date) == 1)
-                return 0;
             int dday = static_cast<int>(strtol(day.c_str(), NULL, 10)) ;
-            if (dday < 1 || dday > monthDate(dyear, dmonth))
+            if (isF_N_Numb(date) == -1 || isF_N_Numb(date) == 1 || dday < 1 || dday > monthDate(dyear, dmonth))
             {
                 std::cout << "day not ok" << std::endl;
                 return 0;
@@ -164,7 +151,7 @@ int validate(std::string date, std::string value,BitcoinExchange *b)
             }
         value = value.substr(value.find_first_of(" ") + 1,value.length());
         double fvalue = 0;
-        if(isF_N_Numb(value) == -1 )
+        if(isF_N_Numb(value) == -1 || value.find_first_of(" ") != std::string::npos )
             return 0;
         fvalue = static_cast<double>(std::strtold(value.c_str(),NULL));
         if (fvalue < 0 && fvalue >  DBL_MAX)
@@ -176,6 +163,7 @@ int validate(std::string date, std::string value,BitcoinExchange *b)
     }
     return 1;
 }
+
 int validefile( std::string str, BitcoinExchange *b)
 {
 	struct stat fileStat;
@@ -211,6 +199,7 @@ int validefile( std::string str, BitcoinExchange *b)
         }
     return 0;
 }
+
 int loadData(BitcoinExchange *b)
 {
 	struct stat fileStat;
@@ -246,15 +235,16 @@ int loadData(BitcoinExchange *b)
         }
     return 0;
 }
+
 int main(int argc, char **argv)
 {
-    (void) argv;
     if (argc == 2)
     {
         BitcoinExchange  *b = new BitcoinExchange();
         if (loadData(b) == 0)
         {
             std::cout << "[INVALID DATABASE]" << std::endl;
+            delete b;
             return 1;
         }
         else
@@ -262,10 +252,12 @@ int main(int argc, char **argv)
         if (validefile(argv[1],b) == 0)
         {
             std::cout << "Error: file not found" << std::endl;
+            delete b;
             return 0;
         }
+    delete b;
     }
     else
-        std::cout << "Error: could not open file." << std::endl;
+        std::cout << "Error: Incorrect Number Of Arguments" << std::endl;
     return 0;
 }

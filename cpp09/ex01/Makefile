@@ -13,7 +13,7 @@
 
 NAME = RPN
 
-SRC =   main.cpp Span.cpp
+SRC =   main.cpp RPN.cpp
 OBJ	= $(SRC:.cpp=.o)
 
 CXXFLAGS = -Wall -Wextra -Werror -std=c++98

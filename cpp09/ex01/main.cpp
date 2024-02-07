@@ -1,28 +1,22 @@
 #include <iostream>
-#include "Span.hpp"
+#include "RPN.hpp"
 
 
-int main() 
+int main(int argc, char ** argv) 
 {
-	Span sp = Span(5);
-	Span sp2 = Span(sp);
-	try
-	{
-		sp.addNumber(9);
-		sp.addNumber(4);
-		sp.addNumber(5);
-		sp2 = sp;
-		// sp2.addRange(0,520);
-		// sp.addNumber(7);
-		// sp.addNumber(5);
-		// sp.addNumber(5);
-		std::cout << " " <<sp.longestSpan() << std::endl;
-		std::cout << " " <<sp.shortestSpan() << std::endl;
+	if (argc == 2 && argv[1][0] != '\0')
+	{	
+		RPN sort = RPN();
+		try
+		{
+			sort.sort(argv[1]);
+		}
+		catch(const char * e)
+		{
+			std::cout << e << std::endl;
+		}
 	}
-	catch(const char * e)
-	{
-		std::cerr << e << '\n';
-	}
-	
+	else
+        std::cout << "Error: Incorrect Number Of Arguments" << std::endl;
     return 0;
 }
