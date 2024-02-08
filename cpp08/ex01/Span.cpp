@@ -97,16 +97,25 @@
 				}
 			}
 		}
+		
 		int Span::shortestSpan () 
 		{
-			if ((this->n <= 0|| this->count< 2 ) )
+			int min;
+			if ((this->n <= 0|| this->count < 2 ) )
 			{
 				throw "Span needs two or more elements";
 			}
 			else
 			{
 				std::sort(this->content.begin(), this->content.end());
-				return this->content[1] - this->content[0];
+				std::vector<int>::iterator i = this->content.begin();
+				min = *(i+1) - *i;
+				for(; i != this->content.end() && i + 1 != this->content.end(); ++i)
+				{
+					if(*(i+1) - *i < min)
+						min = *(i+1) - *i;
+				}
+				return min;
 			}
 		}
 		int Span::longestSpan () 
@@ -118,7 +127,7 @@
 			else
 			{
 				std::sort(this->content.begin(), this->content.end());
-				return this->content[this->content.size() - 1] - this->content[this->content.size() - 2];
+				return this->content[this->content.size() - 1] - this->content[0];
 			}	
 		}
 	/*extra*/

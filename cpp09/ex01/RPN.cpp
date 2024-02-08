@@ -10,7 +10,7 @@
 		// 	std::cout << "RPN default constructor" << std::endl;
 		// 	this->n = n;
 		// 	if(n == 0)
-		// 		std::cout << "vector will be empty always" << std::endl;
+		// 		std::cout << "deque will be empty always" << std::endl;
 		// 	this->count = 0;
 		// }
 
@@ -19,7 +19,7 @@
 		{
 			// std::cout << "RPN copy constructor " << std::endl;
 			// this->content = a.content.copy();
-			for (std::vector<int>::const_iterator i = a.content.begin(); i != a.content.end(); ++i)
+			for (std::deque<int>::const_iterator i = a.content.begin(); i != a.content.end(); ++i)
 				this->content.push_back(*i);
 		}
 
@@ -37,7 +37,7 @@
 				// this->n = rhs.n;
 				// this->count = rhs.count;
 				// this->content = rhs.content.copy();
-			for (std::vector<int>::const_iterator i = rhs.content.begin(); i != rhs.content.end(); ++i)
+			for (std::deque<int>::const_iterator i = rhs.content.begin(); i != rhs.content.end(); ++i)
 				this->content.push_back(*i);
 			}
 			return *this;
@@ -52,7 +52,7 @@
 	void RPN::print()
 	{
 		std::cout  << " ----------------printf-------------"  << std::endl;
-		for (std::vector<int>::iterator i = content.begin(); i !=content.end(); ++i)
+		for (std::deque<int>::iterator i = content.begin(); i !=content.end(); ++i)
 				std::cout  << " iterate :> " << *i << std::endl;
 		std::cout  << " ----------------ends-------------"  << std::endl;
 
@@ -96,21 +96,17 @@
 					content.push_back(numb);
 					i++;
 				}
-				else if (content.size() >= 2)
+				else if((value[i] == '+' || value[i] == '-' || value[i] == '*' || value[i] == '/')  && content.size() >= 2)
 				{
-					if(value[i] == '+' || value[i] == '-' || value[i] == '*' || value[i] == '/' )
-					{
-						if (i == value.length() - 1 || value[i+1] == ' ')
-							calculate(value[i]);
-						else
-							throw ("Error");
-						i++;	
-					}
+					if (i == value.length() - 1 || value[i+1] == ' ')
+						calculate(value[i]);
 					else
-							throw ("Error");
+						throw ("Error");
+					i++;	
 				}
-				else if(value[i] == '+' || value[i] == '-' || value[i] == '*' || value[i] == '/' )
-					throw ("Error");
+				else
+						throw ("Error");
+				
 			}
 			if(content.size() == 1)
 				std::cout << "" << content[0] << std::endl;

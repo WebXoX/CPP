@@ -2,14 +2,14 @@
 #ifndef __RPN_HPP__
 #define __RPN_HPP__
 #include <iostream>
-#include <vector>
+#include <deque>
 #include <algorithm>
 class RPN 
 {
 
     /*VARIABLES*/
 	private:
-		std::vector<int> content;
+		std::deque<int> content;
     /*VARIABLES*/
 
 	public:
