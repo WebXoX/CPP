@@ -1,5 +1,5 @@
 #include <vector>
-#include "MutantStack.hpp"
+#include "PmergeMe.hpp"
 // int main()
 // {
 // 	MutantStack<int> mstack;
@@ -33,36 +33,79 @@
 // 	}
 // 	return 0;
 // }
-int main()
+
+int push (std::string str,PmergeMe *obj)
 {
-	std::vector<int> mstack;
-	mstack.push_back(5);
-	mstack.push_back(17);
-	std::cout << mstack[0] << std::endl;
-	mstack.pop_back();
-	std::cout << mstack.size() << std::endl;
-	mstack.push_back(3);
-	mstack.push_back(5);
-	mstack.push_back(737);
-	mstack.push_back(0);
-	std::vector<int>::iterator it = mstack.begin();
-	std::vector<int>::iterator ite = mstack.end();
-	++it;
-	--it;
-	while (it != ite)
+	if(str.find_first_not_of(" 0123456789-") != std::string::npos)
+				throw ("Error");
+	int *a = NULL,*b = NULL;
+	int flag = 0;
+	int aa, bb;
+	for (size_t i = 0; i < str.length(); )
 	{
-	std::cout << *it << std::endl;
-	++it;
+		if(str[i] == ' ' && flag == 0)
+			i++;
+		else if (isdigit(str[i]) &&  flag == 0 )
+		{
+			size_t j = i+1;
+			while (j < str.length() && isdigit(str[j]))
+				j++;
+		
+			if(str[j] != ' ' && j != str.length())
+				throw (" Error");
+			if (a == NULL)
+			{
+
+				aa = static_cast<int>(strtol(str.substr(i,j).c_str(),NULL,10));
+				a = &aa;
+			}
+			else
+			{
+				bb = static_cast<int>(strtol(str.substr(i,j).c_str(),NULL,10));
+				b = &bb;
+				flag = 1;
+			}
+			i++;
+		}
+		else if(a!= NULL && b != NULL && flag == 1)
+		{
+			obj->push_pair_ve(a,b,1);
+			a = NULL;
+			b = NULL;
+			flag = 0;
+			i++;	
+		}
+		else
+			throw ("Error");
 	}
-	std::vector<int> s(mstack);
-	std::vector<int>::iterator its = s.begin();
-	std::vector<int>::iterator ites = s.end();
-	++it;
-	--it;
-	while (its != ites)
+
+	if (a != NULL && b == NULL)
 	{
-	std::cout << *its << std::endl;
-	++its;
+		obj->push_pair_ve(a,NULL,0);
 	}
+	return 1;
+}
+
+int main(int argc, char *argv[])
+{
+	if( argc == 2)
+	{
+		PmergeMe *obj = new PmergeMe();
+		push(argv[1],obj);
+		for (size_t i = 0; i < obj->itemsv.size(); ++i) {
+        for (size_t j = 0; j < obj->itemsv[i].size(); ++j) {
+            std::cout << obj->itemsv[i][j] << " ";
+        }
+        std::cout << std::endl; // Move to the next row
+        std::cout << std::endl; // Move to the next row
+    }
+		obj->a_sort_insert_ve();
+		
+		delete obj;
+	}
+	else
+	{
+		std::cout << "Error: invalid number of inputs!!" << std::endl;
+	}	
 	return 0;
 }

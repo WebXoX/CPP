@@ -13,10 +13,10 @@
 
 NAME = what
 
-SRC =  main.cpp 
+SRC =  main.cpp PmergeMe.cpp
 OBJ	= $(SRC:.cpp=.o)
 
-CXXFLAGS = -Wall -Wextra -Werror -std=c++98
+CXXFLAGS = -Wall -Wextra -Werror -std=c++98 -fsanitize=address -g3
 CXX = c++
 
 
