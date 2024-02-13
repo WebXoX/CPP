@@ -65,10 +65,31 @@
 			{
 				if ( this->itemsv[i].size() == 2)
 				{
-					this->chainv.push_back(this->itemsv[i][1]);
-				 	this->itemsv[i].pop_back();	
+					for (size_t j = i + 1; j < this->itemsv.size(); j++)
+					{
+						if ( this->itemsv[j].size() == 2)
+						{
+							if ( this->itemsv[i][1] > this->itemsv[j][1])
+							{
+								int temp = this->itemsv[i][0];
+								int temp1 = this->itemsv[i][1];
+								this->itemsv[j][0] = temp;
+								this->itemsv[j][1] = temp1;
+								break;
+							}
+						}
+					}
 				}
 			}
+
+			// for (size_t i = 0; i < this->itemsv.size(); i++)
+			// {
+			// 	if ( this->itemsv[i].size() == 2)
+			// 	{
+			// 		this->chainv.push_back(this->itemsv[i][1]);
+			// 	 	this->itemsv[i].pop_back();	
+			// 	}
+			// }
 			
 			// for (size_t i = 0; i < this->itemsv.size(); ++i) {
 			// 	for (size_t j = 0; j < this->itemsv[i].size(); ++j) {
