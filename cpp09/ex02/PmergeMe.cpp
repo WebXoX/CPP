@@ -73,47 +73,55 @@
 							{
 								int temp = this->itemsv[i][0];
 								int temp1 = this->itemsv[i][1];
+								this->itemsv[i][0] = this->itemsv[j][0];
+								this->itemsv[i][1] = this->itemsv[j][1];
 								this->itemsv[j][0] = temp;
 								this->itemsv[j][1] = temp1;
-								break;
 							}
 						}
 					}
 				}
 			}
 
-			// for (size_t i = 0; i < this->itemsv.size(); i++)
-			// {
-			// 	if ( this->itemsv[i].size() == 2)
-			// 	{
-			// 		this->chainv.push_back(this->itemsv[i][1]);
-			// 	 	this->itemsv[i].pop_back();	
-			// 	}
-			// }
+			for (size_t i = 0; i < this->itemsv.size(); i++)
+			{
+				if ( this->itemsv[i].size() == 2)
+				{
+					this->chainv.push_back(this->itemsv[i][1]);
+				 	this->itemsv[i].pop_back();	
+				}
+			}
 			
-			// for (size_t i = 0; i < this->itemsv.size(); ++i) {
-			// 	for (size_t j = 0; j < this->itemsv[i].size(); ++j) {
-			// 		std::cout << this->itemsv[i][j] << " ";
-			// 	}
-			// 	std::cout << std::endl; 
-			// }
-			// 	std::cout << std::endl; 
+			for (size_t i = 0; i < this->itemsv.size(); ++i) {
+				for (size_t j = 0; j < this->itemsv[i].size(); ++j) {
+					std::cout << this->itemsv[i][j] << " ";
+				}
+				std::cout << std::endl; 
+			}
+				std::cout << std::endl; 
 
-			// for (size_t i = 0; i < this->chainv.size(); ++i) {
-			// 		std::cout << this->chainv[i] << " ";
-			// 	std::cout << std::endl; 
-			// }
-			// for (size_t i = 0; i < this->itemsv.size(); i++)
-			// {
-			// 	for (size_t j = 0; j < this->chainv.size(); j++)
-			// 	{
-			// 		if ( this->itemsv[i][0] < chainv[j])
-			// 		{
-			// 			this->chainv.insert(j,this->itemsv[i][0]);
-			// 			this->itemsv[i].pop_back();	
-			// 		}
-			// 	}
-			// }
+			for (size_t i = 0; i < this->chainv.size(); ++i) {
+					std::cout << this->chainv[i] << " ";
+				std::cout << std::endl; 
+			}
+
+			for (std::vector<std::vector<int> >::iterator outer_it = this->itemsv.begin(); outer_it != this->itemsv.end(); ++outer_it) 
+			{
+    			std::vector<int>& inner_vector = *outer_it; // Get the inner vector
+				for (std::vector<int>::iterator inner_it = inner_vector.begin(); inner_it != inner_vector.end(); ++inner_it)
+				{
+					for (std::vector<int>::iterator j =  this->chainv.begin(); j < this->chainv.end(); ++j)
+					{
+						if ( *inner_it < *j)
+						{
+							this->chainv.insert(j,*inner_it);
+							break;
+							// std::vector<int>::iterator poped =(inner_vector.end()-1);
+								
+						}
+					}
+				}
+			}
 		}
 		void PmergeMe::push_pair_ve(int *a ,int *b, int flag)
 		{

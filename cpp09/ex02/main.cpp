@@ -50,7 +50,6 @@ int push (std::string str,PmergeMe *obj)
 			size_t j = i+1;
 			while (j < str.length() && isdigit(str[j]))
 				j++;
-		
 			if(str[j] != ' ' && j != str.length())
 				throw (" Error");
 			if (a == NULL)
@@ -65,10 +64,14 @@ int push (std::string str,PmergeMe *obj)
 				b = &bb;
 				flag = 1;
 			}
-			i++;
+			// std::cout << "number " << aa << " :" << bb << std::endl;
+			i += j-i;
+			if(i == str.length() && flag == 1)
+				i--;
 		}
 		else if(a!= NULL && b != NULL && flag == 1)
 		{
+			std::cout << "number " << *a << " :" << *b << std::endl;
 			obj->push_pair_ve(a,b,1);
 			a = NULL;
 			b = NULL;
@@ -92,6 +95,7 @@ int main(int argc, char *argv[])
 	{
 		PmergeMe *obj = new PmergeMe();
 		push(argv[1],obj);
+		obj->a_sort_insert_ve();
 		for (size_t i = 0; i < obj->itemsv.size(); ++i) {
         for (size_t j = 0; j < obj->itemsv[i].size(); ++j) {
             std::cout << obj->itemsv[i][j] << " ";
@@ -99,7 +103,6 @@ int main(int argc, char *argv[])
         std::cout << std::endl; // Move to the next row
         std::cout << std::endl; // Move to the next row
     }
-		obj->a_sort_insert_ve();
 		
 		delete obj;
 	}
