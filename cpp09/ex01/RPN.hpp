@@ -9,7 +9,7 @@ class RPN
 
     /*VARIABLES*/
 	private:
-		std::deque<int> content;
+		std::deque<double> content;
     /*VARIABLES*/
 
 	public:

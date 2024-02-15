@@ -6,12 +6,12 @@
 #    By: jperinch <jperinch@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/07/12 12:01:22 by jperinch          #+#    #+#              #
-#    Updated: 2024/01/22 11:55:39 by jperinch         ###   ########.fr        #
+#    Updated: 2024/02/15 15:27:05 by jperinch         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 
-NAME = what
+NAME = PmergeMe
 
 SRC =  main.cpp PmergeMe.cpp
 OBJ	= $(SRC:.cpp=.o)

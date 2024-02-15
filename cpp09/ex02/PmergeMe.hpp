@@ -12,6 +12,7 @@ class PmergeMe
     /*VARIABLES*/
 	public:
 		std::vector<std::vector<int> > itemsv;
+		std::vector<int> before;
 		std::vector<int> chainv;
 		std::list<std::list<int> > items;
 		std::list<int> chainl;
@@ -32,6 +33,7 @@ class PmergeMe
 	/*extra*/
 		void push_pair_ve(int * a, int *b, int flag);
 		void a_sort_insert_ve();
+		void a_sort_insert_l();
 		void push_pair_l(int * a, int *b, int flag);
 	/*extra*/
 

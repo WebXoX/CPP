@@ -5,21 +5,11 @@
 		{
 			// std::cout << "RPN default constructor" << std::endl;
 		}
-		// RPN::RPN (unsigned int n)
-		// {
-		// 	std::cout << "RPN default constructor" << std::endl;
-		// 	this->n = n;
-		// 	if(n == 0)
-		// 		std::cout << "deque will be empty always" << std::endl;
-		// 	this->count = 0;
-		// }
-
 
 		RPN::RPN (const RPN &a)
 		{
 			// std::cout << "RPN copy constructor " << std::endl;
-			// this->content = a.content.copy();
-			for (std::deque<int>::const_iterator i = a.content.begin(); i != a.content.end(); ++i)
+			for (std::deque<double>::const_iterator i = a.content.begin(); i != a.content.end(); ++i)
 				this->content.push_back(*i);
 		}
 
@@ -34,11 +24,8 @@
 		{
 			if (this != &rhs)
 			{
-				// this->n = rhs.n;
-				// this->count = rhs.count;
-				// this->content = rhs.content.copy();
-			for (std::deque<int>::const_iterator i = rhs.content.begin(); i != rhs.content.end(); ++i)
-				this->content.push_back(*i);
+				for (std::deque<double>::const_iterator i = rhs.content.begin(); i != rhs.content.end(); ++i)
+					this->content.push_back(*i);
 			}
 			return *this;
 		}
@@ -52,7 +39,7 @@
 	void RPN::print()
 	{
 		std::cout  << " ----------------printf-------------"  << std::endl;
-		for (std::deque<int>::iterator i = content.begin(); i !=content.end(); ++i)
+		for (std::deque<double>::iterator i = content.begin(); i !=content.end(); ++i)
 				std::cout  << " iterate :> " << *i << std::endl;
 		std::cout  << " ----------------ends-------------"  << std::endl;
 
@@ -71,7 +58,11 @@
 			else if( str == '*')
 				content.push_back(numb1 * numb2);
 			else if( str == '/')
+			{
+				if(numb2 == 0)
+					throw("divide by zero");
 				content.push_back(numb1 / numb2);
+			}
 
 		}
 		void RPN::sort(std::string value)
@@ -109,7 +100,7 @@
 				
 			}
 			if(content.size() == 1)
-				std::cout << "" << content[0] << std::endl;
+				std::cout << "" << (int)content[0] << std::endl;
 			else
 				throw ("Error");
 		}
