@@ -3,8 +3,8 @@
 #define __SCALARCONVERTER_H__
 #include <iostream>
 #include <string>
-#include <stdlib.h>
 #include <iomanip>
+#include <stdlib.h>
 // # include <_ctype.h>
 /*
 />inherit from bureaucrat
